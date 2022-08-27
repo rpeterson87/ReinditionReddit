@@ -1,4 +1,4 @@
-//! Seed Data - SAMPLE USE ONLY
+// Seed Data - SAMPLE USE ONLY
 
 const db = require('./index');
 
