@@ -16,6 +16,14 @@ router.get('/', (req, res) => {
         console.log(err)
     }
 });
+// NEW / GET- localhost:4000/posts/new
+router.get('/new', (req,res) => {
+    try {
+        res.render('new.ejs')
+    } catch(err) {
+        console.log(err)
+    }
+});
 
 // CREATE / POST - localhost:4000/posts/create
 
@@ -26,9 +34,7 @@ router.get('/:id', (req,res) => {
     } catch(err) {
         console.log(err)
     }
-})
-// NEW / GET- localhost:4000/posts/new
-
+});
 // DESTROY / DELETE  - localhost:4000/posts/<_id>
 
 // EDIT / GET - localhost:4000/posts/<_id>/edit
