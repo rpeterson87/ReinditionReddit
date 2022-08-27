@@ -9,9 +9,11 @@ router.use(express.urlencoded({extended: false}));
 const db = require('../models');
 
 // INDEX / GET - localhost:4000/posts
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        res.render('index.ejs')
+        const posts = await db.Posts.find();
+        const context = {posts: posts};
+        res.render('index.ejs', context);
     } catch(err) {
         console.log(err)
     }

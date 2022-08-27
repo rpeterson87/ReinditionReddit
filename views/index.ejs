@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-    <h1> post index</h1>
+    <div>
+        <% for (let i = 0; i < posts.length; i++){ %>
+            <h3>r/<%= posts[i].community %><span> Posted by: (username placeholder) @ <%= posts[i].createdAt %></span></h3>
+            <h2>
+                <a href="/posts/<%= posts[i]._id %>"><%= posts[i].title%></a>
+            </h2>
+            
+        <% } %>
+    </div>
 </body>
 </html>
