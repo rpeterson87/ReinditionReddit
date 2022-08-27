@@ -1,5 +1,5 @@
 
-require("../config/db.connection");
+require("../config/db.connections");
 
 module.exports = {
     Posts: require('./Post'),

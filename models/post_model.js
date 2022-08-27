@@ -24,7 +24,7 @@ async function reloadData() {
         let deleted = await db.Posts.deleteMany({});
         console.log(deleted);
         let reloading = await db.Posts.insertMany(samplePosts);
-        console.log(realoading);
+        console.log(reloading);
     } catch(err) {
         console.log(err);
     }
