@@ -6,13 +6,17 @@ body {
 }
 .contentDiv {
     display: grid;
-    grid-template-rows: 2em 2.5em 1fr 2.5em;
+    /* grid-template-rows: 2em 2.5em 1fr 2.5em; */
+    grid-template-rows: fit-content;
     grid-template-columns: 3em 1fr;
     background-color: rgb(26,26,27);
     border: 1px solid rgb(52,53,54);
     border-radius: 4px;
     width: 100%;
     overflow: hidden;
+}
+.contentDiv:hover {
+    border: 1px solid rgb(100,100,100);
 }
 .contentImage {
     display: relative;
@@ -26,10 +30,10 @@ body {
 .contentTitle {
     display: relative;
     color: rgb(215,215,215);
-    font-size: 1.7em;
+    font-size: 1.5em;
     grid-row: 2;
     grid-column: 2;
-    margin: 0;
+    margin: 0 0 0.4em 0;
 }
 .contentBody {
     display: flex;
@@ -59,7 +63,7 @@ body {
     font-size: 0.9em;
     grid-row: 1;
     grid-column: 2;
-
+    margin: 0.3em;
 }
 .containerMain {
     font-family:Arial, Helvetica, sans-serif;
@@ -68,3 +72,4 @@ body {
     grid-column: 2;
     width: 100%;
 }
+

@@ -12,7 +12,8 @@
         <% for (let i = 0; i < posts.length; i++){ %>
             <a href="/posts/<%= posts[i]._id %>" class="containerMain">
                 <div class="contentDiv">
-                    <p class="contentCommunity">r/<%= posts[i].community %>
+                    <p class="contentCommunity">
+                        r/<%= posts[i].community %>
                         <span class="contentAuthor"> Posted by: (username placeholder) - <%= posts[i].createdAt %></span>
                     </p>
                     
