@@ -1,6 +1,6 @@
 // importing statements
 const express = require('express');
-const router = expressRouter();
+const router = express.Router();
 const bcrypt = require('bcryptjs');
 
 // MIDDLEWARE
