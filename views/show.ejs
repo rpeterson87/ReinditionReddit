@@ -5,7 +5,7 @@
     <a href="/posts/<%=id%>/edit">Edit Post</a>
     <div class="delete">
         <p class="control">
-            <form action="/posts/<%= id %>?_method_DELETE" method="POST" class="delete_form">
+            <form action="/posts/<%= id %>?_method=DELETE" method="POST" class="delete_form">
                 <input type="submit" class="delete_button" value="Delete Posts">
             </form>
         </p>
