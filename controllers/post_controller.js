@@ -28,6 +28,17 @@ router.get('/new', (req,res) => {
 });
 
 // CREATE / POST - localhost:4000/posts/create
+router.post('/', async (req, res, next)=> {
+    const createdPost = req.body;
+    try{
+        const newPost = await db.Posts.create(createdPost);
+        console.log(newPost);
+        res.redirect('/posts');
+    } catch (err) {
+        console.log(err);
+        next();
+    }
+})
 
 // SHOW / GET - localhost:4000/posts/_id
 router.get('/:id', async (req,res) => {
