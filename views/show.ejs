@@ -2,6 +2,22 @@
 <%- include('include/_header') %>
 <!-- /include header -->
 <body>
-    <h1> show page</h1>
+    <div class="containerMain">
+        <div class="contentDiv">
+            <p class="contentCommunity">
+                r/<%= posts.community %>
+                <span class="contentAuthor"> Posted by: (username placeholder) - <%= posts.createdAt %></span>
+            </p>
+                       
+            <p class="contentTitle"><%= posts.title%></p>
+            <img class="contentImage" src="<%= posts.image %>">
+    
+            <p class="contentBody">
+                <%= posts.body %>
+            </p>
+
+        </div>    
+    </div>
+    
 </body>
 </html>
