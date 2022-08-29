@@ -52,7 +52,17 @@ router.get('/:id', async (req, res) => {
     }
 });
 // DESTROY / DELETE  - localhost:4000/posts/<_id>
-
+router.delete('/:id', async (req,res) => {
+    console.log("Are we seeing this")
+    try{
+       const deletePost = await db.Posts.findByIdAndDelete(req.params.id); 
+       return res.redirect('/posts');
+    }catch(error){
+        req.error = error;
+        console.log(error);
+        res.redirect('/404');
+    }
+});
 // EDIT / GET - localhost:4000/posts/<_id>/edit
 router.get('/:id/edit', async (req, res) => {
     try {
