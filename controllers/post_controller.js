@@ -53,6 +53,16 @@ router.get('/:id', async (req,res) => {
 // DESTROY / DELETE  - localhost:4000/posts/<_id>
 
 // EDIT / GET - localhost:4000/posts/<_id>/edit
+router.get('/:id/edit', async(req,res) => {
+    try {
+        const editPost = await db.Posts.findById(req.params.id)
+        res.render('edit.ejs', { post:editPost, id: editPost._id})
+
+    } catch(err) {
+        console.log(err)
+    }
+});
+
 
 // UPDATE / PUT- localhost:4000/posts/<_id>
 
