@@ -35,7 +35,7 @@ app.use('/posts', controllers.posts)
 
 //  home route
 app.get('/', (req, res) => {
-    res.render(`home.ejs`)
+    res.redirect(`/posts`)
 })
 
 // 404 Wildcard Route

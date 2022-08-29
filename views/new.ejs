@@ -1,13 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles/main.css"> 
-</head>
-<body>
-    <h1> new page</h1>
-</body>
-</html>
+<!-- include header -->
+<%- include('include/_header') %>
+    <!-- /include header -->
+
+    <body>
+        <main class="container">
+            <div class="div2">
+                <form class="form1" action="/posts" method="POST">
+                    <div class="div3">
+                        <label class="label1" for="post">New Post</label>
+                        <input class="input1" type="text" placeholder="Enter Text Here" name="title" />
+                    </div>
+                    <div class="div4">
+                        <div class="div5">
+                            <label class="label2" for="community">Community</label>
+                            <input class="input2" type="text" placeholder="Enter Community" name="community" />
+                        </div>
+                        <div class="div6">
+                            <label class="label3" for="body">Image URL</label>
+                            <input class="input3" text="text" placeholder="Add an image if you want" name="image" />
+                        </div>
+                        <div class="div7">
+                            <label class="label4" for="body">Text Body</label>
+                            <textarea class="input4" type="text" placeholder="Enter text body" name="body"></textarea>
+                        </div>
+                        <button class="button1">Create a post</button>
+                </form>
+            </div>
+    </body>
+    </main>
+
+    </html>

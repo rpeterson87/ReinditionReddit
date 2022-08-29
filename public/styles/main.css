@@ -1,6 +1,6 @@
 body {
     display: grid;
-    grid-template-columns: 1fr 50% 20% 1fr;
+    grid-template-columns: 1fr 40em 20em 1fr;
     background-color: black;
     color: rgb(215,215,215);
     column-gap: 1em;
@@ -16,15 +16,16 @@ body {
     width: 100%;
     overflow: hidden;
 }
-div:hover:not(.sidebar) {
+.contentDiv:hover {
     border: 1px solid rgb(100,100,100);
 }
 .contentImage {
-    display: relative;
+    display: block;
     margin-left: auto;
     margin-right: auto;
     object-fit: contain;
     max-width: 95%;
+    max-height: fit-content;
     grid-row: 3;
     grid-column: 2;
 }
@@ -37,12 +38,12 @@ div:hover:not(.sidebar) {
     margin: 0 0 0.4em 0;
 }
 .contentBody {
-    display: flex;
+    display: block;
     align-items: center;
     color: rgb(215,215,215);
     font-weight: normal;
     font-size: 1em;
-    grid-row: 3;
+    grid-row: 4;
     grid-column: 2;
 }
 .contentAuthor {
@@ -80,7 +81,7 @@ div:hover:not(.sidebar) {
     max-width: 100%;
     font-size: 1.5em;
     grid-template-rows: fit-content;
-    padding: 0.5em;
+    padding: 0.3em;
 }
 ol {
     text-align: left;
