@@ -1,0 +1,29 @@
+.input1, .input2, .input3, textarea {
+    grid-column: 2;
+    width: 90%; 
+    background-color: rgb(26,26,26);
+    border: 1px solid rgb(52,53,54);
+    border-radius: 4px;
+    font-size: 1.2em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+textarea {
+    height: 6em;
+}
+.input1:hover, .input2:hover, .input3:hover{
+    border: 1px solid rgb(100,100,100);
+}
+.label1, .label2, .label3{
+    font-size: 1.5em;
+    text-decoration: none;
+}
+.form1 {
+    grid-column: 2;
+}
+.sidebar {
+    display: grid;
+    flex-direction: column;
+    grid-row: 1 / 10;
+    grid-column: 3;
+    row-gap: 0.7em;
+}

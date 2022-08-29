@@ -2,13 +2,6 @@
 <%- include('include/_header') %>
 <!-- /include header -->
 <body>
-    <a href="/posts/<%=id%>/edit">Edit Post</a>
-    <div class="delete">
-        <p class="control">
-            <form action="/posts/<%= id %>?_method=DELETE" method="POST" class="delete_form">
-                <input type="submit" class="delete_button" value="Delete Posts">
-            </form>
-        </p>
     </div>
     <div class="containerMain">
         <div class="contentDiv">
@@ -42,8 +35,15 @@
                 Feel free to make your own community or select one from the feed and add your own post!
             </p>
             <form action="/posts/new">
-                <input type="submit" value="Create Community" class="createButton">
+                <input type="submit" value="Create Post" class="createButton">
             </form>
+            <form action="/posts/<%=id%>/edit">
+                <input type="submit" value="Edit Post" class="editButton">
+            </form>
+            <form action="/posts/<%= id %>?_method=DELETE" method="POST">
+                <input type="submit" class="deleteButton" value="Delete Post">
+            </form>
+
         </div>
     </div>
 </body>

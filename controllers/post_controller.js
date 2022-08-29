@@ -53,7 +53,6 @@ router.get('/:id', async (req, res) => {
 });
 // DESTROY / DELETE  - localhost:4000/posts/<_id>
 router.delete('/:id', async (req,res) => {
-    console.log("Are we seeing this")
     try{
        const deletePost = await db.Posts.findByIdAndDelete(req.params.id); 
        return res.redirect('/posts');

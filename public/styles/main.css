@@ -103,7 +103,7 @@ ol {
     grid-column: 3;
     row-gap: 0.7em;
 }
-.createButton {
+.createButton, .editButton, .deleteButton {
     max-width: 100%;
     font-size: 1.2rem;
     border-radius: 9999px;
@@ -113,4 +113,3 @@ ol {
     margin-bottom: 1em;
     cursor: pointer;
 }
-
