@@ -30,9 +30,11 @@ router.get('/new', (req,res) => {
 // CREATE / POST - localhost:4000/posts/create
 
 // SHOW / GET - localhost:4000/posts/_id
-router.get('/:id', (req,res) => {
+router.get('/:id', async (req,res) => {
     try {
-        res.render('show.ejs')
+        const foundPost = await db.Posts.findById(req.params.id)
+        const postInfo = await db.Posts.find({post: foundPost._id})
+        res.render('show.ejs',{posts: foundPost, id: foundPost._id})
     } catch(err) {
         console.log(err)
     }
