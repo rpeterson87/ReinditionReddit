@@ -2,6 +2,13 @@
 <%- include('include/_header') %>
 <!-- /include header -->
 <body>
+    <div class="delete">
+        <p class="control">
+            <form action="/posts/<%= id %>?_method_DELETE" method="POST" class="delete_form">
+                <input type="submit" class="delete_button" value="Delete Posts">
+            </form>
+        </p>
+    </div>
     <div class="containerMain">
         <div class="contentDiv">
             <p class="contentCommunity">
