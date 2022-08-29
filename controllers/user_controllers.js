@@ -14,7 +14,7 @@ const user = require('../models');
 
 // GET LOGIN ROUTE 
 router.get('/login', (req, res) => {
-    res.render('/users/login.ejs');
+    res.render('users/login.ejs');
 });
 
 // POST LOGIN ROUTE
@@ -36,7 +36,7 @@ router.post('/login', async (req,res, next) => {
         }
     }catch(error){
     console.log(error);
-    next();
+    next("this is broken");
     }
 });
 
