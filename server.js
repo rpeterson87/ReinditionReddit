@@ -9,7 +9,7 @@ require('dotenv').config();
 const controllers = require('./controllers')
 
 const app = express()
-const PORT = 4000
+const PORT = process.env.PORT
 app.set('view engine', 'ejs')
 
 // MIDDLEWARE
@@ -44,4 +44,4 @@ app.route('/*').all((req,res)=>{
 })
 
 // SERVER
-app.listen(4000, () => console.log('starting server at port:', PORT))
+app.listen(PORT, () => console.log('starting server at port:', PORT))

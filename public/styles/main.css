@@ -1,4 +1,115 @@
 body {
+    display: grid;
+    grid-template-columns: 1fr 50% 20% 1fr;
     background-color: black;
-    color: white;
+    color: rgb(215,215,215);
+    column-gap: 1em;
+    row-gap: 0.7em;
 }
+.contentDiv {
+    display: grid;
+    grid-template-rows: fit-content;
+    grid-template-columns: 3em 1fr;
+    background-color: rgb(26,26,27);
+    border: 1px solid rgb(52,53,54);
+    border-radius: 4px;
+    width: 100%;
+    overflow: hidden;
+}
+div:hover:not(.sidebar) {
+    border: 1px solid rgb(100,100,100);
+}
+.contentImage {
+    display: relative;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    max-width: 95%;
+    grid-row: 3;
+    grid-column: 2;
+}
+.contentTitle {
+    display: relative;
+    color: rgb(215,215,215);
+    font-size: 1.5em;
+    grid-row: 2;
+    grid-column: 2;
+    margin: 0 0 0.4em 0;
+}
+.contentBody {
+    display: flex;
+    align-items: center;
+    color: rgb(215,215,215);
+    font-weight: normal;
+    font-size: 1em;
+    grid-row: 3;
+    grid-column: 2;
+}
+.contentAuthor {
+    display: flex;
+    align-items: center;
+    display: inline;
+    color: rgb(125,125,125);
+    font-weight: normal;
+    font-size: 0.9em;
+    grid-row: 1;
+    grid-column: 2;
+}
+.contentCommunity {
+    display: flex;
+    align-items: center;
+    display: inline;
+    color: rgb(215,215,215);
+    font-weight: normal;
+    font-size: 0.9em;
+    grid-row: 1;
+    grid-column: 2;
+    margin: 0.3em;
+}
+.containerMain {
+    font-family:Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    grid-column: 2;
+    width: 100%;
+}
+.topCommunities {
+    text-align: center;
+    background-color: rgb(26,26,27);
+    border: 1px solid rgb(52,53,54);
+    border-radius: 4px;
+    max-width: 100%;
+    font-size: 1.5em;
+    grid-template-rows: fit-content;
+    padding: 0.5em;
+}
+ol {
+    text-align: left;
+}
+.createOrPost {
+    background-color: rgb(26,26,27);
+    border: 1px solid rgb(52,53,54);
+    border-radius: 4px;
+    max-width: 100%;
+    grid-template-rows: fit-content;
+    font-size: 1.1em;
+    text-align: center;
+    padding: 0.3em;
+}
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    grid-row: 1 / 10;
+    grid-column: 3;
+    row-gap: 0.7em;
+}
+.createButton {
+    max-width: 100%;
+    font-size: 1.2rem;
+    border-radius: 9999px;
+    padding-left: 2em;
+    padding-right: 2em;
+    text-align: center;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+
