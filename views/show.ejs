@@ -1,8 +1,8 @@
 <!-- include header -->
 <%- include('include/_header') %>
 <!-- /include header -->
-<a href="/posts/<%=_id%>/edit">Edit Post</a>"></a>
 <body>
+    <a href="/posts/<%=id%>/edit">Edit Post</a>
     <div class="delete">
         <p class="control">
             <form action="/posts/<%= id %>?_method_DELETE" method="POST" class="delete_form">
