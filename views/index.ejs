@@ -5,9 +5,6 @@
     <body>
 
 <%- include('include/_nav') %>
-    <% if (session.currentUser){ %>
-        <h1> <%= session.currentUser.username %> </h1> 
-    <% } %>
         
         <% for (let i=0; i < posts.length; i++){ %>
             <a href="/posts/<%= posts[i]._id %>" class="containerMain">
