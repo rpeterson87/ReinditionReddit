@@ -57,7 +57,7 @@ router.post('/register', async (req, res, next) => {
         console.log(`created ${formData}`)
         let foundUser = await User.exists({ email: formData.email });
         if (foundUser) {
-            return res.redirect('/users/login')
+            return res.redirect('/login')
         } else {
             let rounds = parseInt(process.env.SALT_ROUNDS)
             let salt = await bcrypt.genSalt(rounds);
@@ -66,7 +66,7 @@ router.post('/register', async (req, res, next) => {
 
             const newUser = await User.create(formData);
             console.log(`create ${newUser}`)
-            return res.redirect('/users/login')
+            return res.redirect('/login')
         }
 
 
