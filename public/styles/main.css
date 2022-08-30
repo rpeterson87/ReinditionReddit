@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 body {
     display: grid;
-    grid-template-rows: 3.5em 1fr;
+    grid-template-rows: 3em 1fr;
     grid-template-columns: 1fr 40em 20em 1fr;
     background-color: black;
     color: rgb(215,215,215);
@@ -116,44 +116,39 @@ ol {
     cursor: pointer;
 }
 .logo {
-    display: inline;
+    display: flex;
+    align-items: center;
     width: 2em;
     text-decoration: none;
     padding: 0.3em 0 0.3em 0.3em;
 }
 
 .logoName {
-    display: inline;
+    display: flex;
+    align-items: center;
     font-family: 'Varela Round', sans-serif;
     font-size: 2em;
     text-decoration: none;
     color: rgb(215,215,215);
+
 }
 nav {
-    display: inline;
+    display: flex;
     grid-row: 1;
     grid-column: 1/ span 4;
     background-color: rgb(26,26,27);
     width: 100%;
-    padding-bottom: 1em;
 }
 .loginButton, .registerButton {
+    margin-top: 0.5em;
+    display: flex;
+    align-items: center;
     max-width: 100%;
     font-size: 1.2rem;
     border-radius: 9999px;
     padding-left: 2em;
     padding-right: 2em;
     text-align: center;
+    margin-bottom: 1em;
     cursor: pointer;
-}
-.navbuttons {
-    position: relative;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-.homeLink{
-    display: flex;
-    text-decoration: none;
-    align-items: center;
 }
