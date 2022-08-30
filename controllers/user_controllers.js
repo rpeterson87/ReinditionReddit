@@ -66,7 +66,7 @@ router.post('/register', async (req, res, next) => {
 
             const newUser = await User.create(formData);
             console.log(`create ${newUser}`)
-            return res.redirect('/')
+            return res.redirect('/users/login')
         }
 
 
