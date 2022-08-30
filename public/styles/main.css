@@ -113,4 +113,9 @@ ol {
     margin-bottom: 1em;
     cursor: pointer;
 }
+.logo {
+    width: 3em;
+    border-radius: 9999px;
+}
+
 
