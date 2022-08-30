@@ -140,15 +140,18 @@ nav {
     width: 100%;
 }
 .loginButton, .registerButton {
-    margin-top: 0.5em;
-    display: flex;
+    display: block;
     align-items: center;
     max-width: 100%;
     font-size: 1.2rem;
     border-radius: 9999px;
     padding-left: 2em;
     padding-right: 2em;
-    text-align: center;
-    margin-bottom: 1em;
     cursor: pointer;
+    margin-top: 0.5em;
+}
+.form {
+    display: flex;
+    margin-right: 0;
+    margin-left: auto;
 }
