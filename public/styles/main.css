@@ -118,9 +118,9 @@ ol {
 .logo {
     display: flex;
     align-items: center;
-    width: 2em;
+    width: 2.5em;
     text-decoration: none;
-    padding: 0.3em 0 0.3em 0.3em;
+    padding: 0.1em 0 0.1em 0.3em;
 }
 
 .logoName {
@@ -130,6 +130,7 @@ ol {
     font-size: 2em;
     text-decoration: none;
     color: rgb(215,215,215);
+    padding-left: 0.3em
 
 }
 nav {
@@ -152,6 +153,6 @@ nav {
 }
 .form {
     display: flex;
-    margin-right: 0;
+    padding-right: 0.5em;
     margin-left: auto;
 }
