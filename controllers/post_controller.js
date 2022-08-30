@@ -13,7 +13,12 @@ const db = require('../models');
 router.get('/', async (req, res) => {
     try {
         const posts = await db.Posts.find();
-        const context = { posts: posts };
+        let context = { posts: posts };
+        if(req.session){
+            console.log(req.session)
+            const session = req.session;
+            context = { posts: posts, session: session}
+        }
         res.render('index.ejs', context);
     } catch (err) {
         console.log(err)
