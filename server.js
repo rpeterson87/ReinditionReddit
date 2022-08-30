@@ -30,7 +30,7 @@ app.use(
 
 // MIDDLEWARE - code that runs for every request (before routes)
 app.use('/posts', controllers.posts)
-app.use('/users', controllers.users)
+app.use('/', controllers.users)
 
 
 //  home route
