@@ -1,16 +1,17 @@
 <!-- include header -->
 <%- include('../include/_header') %>
+<link rel="stylesheet" href="/styles/newUser.css">
     <!-- /include header -->
   <body>
     <%- include('../include/_nav') %>
-    <section>
-        <div>
-          <h1>Login</h1>
-          <form action="/users/login" method="POST">
+    <section class="containerMain">
+        <div class="contentDiv">
+          <h1 class="contentTitle">Login</h1>
+          <form action="/users/login" method="POST" class="contentBody">
             <div>
               <label>Email</label>
               <div>
-                <input
+                <input class="input1"
                   name="email"
                   type="email"
                   placeholder="example@domain.com"
@@ -20,7 +21,7 @@
             <div >
               <label>Password</label>
               <div>
-                <input
+                <input class="input2"
                   name="password"
                   type="password"
                   placeholder="******"
@@ -29,7 +30,7 @@
             </div>
             <div>
               <div>
-                <button>Submit</button>
+                <button class="createButton">Submit</button>
               </div>
             </div>
           </form>
