@@ -118,9 +118,9 @@ ol {
 .logo {
     display: flex;
     align-items: center;
-    width: 2em;
+    width: 2.5em;
     text-decoration: none;
-    padding: 0.3em 0 0.3em 0.3em;
+    padding: 0.1em 0 0.1em 0.3em;
 }
 
 .logoName {
@@ -130,6 +130,7 @@ ol {
     font-size: 2em;
     text-decoration: none;
     color: rgb(215,215,215);
+    padding-left: 0.3em
 
 }
 nav {
@@ -140,15 +141,18 @@ nav {
     width: 100%;
 }
 .loginButton, .registerButton {
-    margin-top: 0.5em;
-    display: flex;
+    display: block;
     align-items: center;
     max-width: 100%;
     font-size: 1.2rem;
     border-radius: 9999px;
     padding-left: 2em;
     padding-right: 2em;
-    text-align: center;
-    margin-bottom: 1em;
     cursor: pointer;
+    margin-top: 0.5em;
+}
+.form {
+    display: flex;
+    padding-right: 0.5em;
+    margin-left: auto;
 }
