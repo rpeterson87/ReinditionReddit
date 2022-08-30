@@ -1,24 +1,40 @@
 <!-- include header -->
-<%- include('include/_header') %>
+<%- include('../include/_header',{page: 'Login'}) %>
+<link rel="stylesheet" href="/styles/newUser.css">
     <!-- /include header -->
-    <form action="action_page.php" method="post">
-        <div class="imgcontainer">
-            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+  <body>
+    <%- include('../include/_nav') %>
+    <section class="containerMain">
+        <div class="contentDiv">
+          <h1 class="contentTitle">Login</h1>
+          <form action="/login" method="POST" class="contentBody">
+            <div>
+              <label>Email</label>
+              <div>
+                <input class="input1"
+                  name="email"
+                  type="email"
+                  placeholder="example@domain.com"
+                />
+              </div>
+            </div>
+            <div >
+              <label>Password</label>
+              <div>
+                <input class="input2"
+                  name="password"
+                  type="password"
+                  placeholder="******"
+                />
+              </div>
+            </div>
+            <div>
+              <div>
+                <button class="createButton">Submit</button>
+              </div>
+            </div>
+          </form>
         </div>
-
-        <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
-
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-
-            <button type="submit">Login</button>
-
-        </div>
-
-        <div class="container">
-
-            <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-    </form>
+      </section>
+    </body>
+  </html>

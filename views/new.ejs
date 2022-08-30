@@ -1,32 +1,44 @@
-<!-- include header -->
-<%- include('include/_header') %>
-    <!-- /include header -->
+<%- include('include/_header',{page: 'RenditionReddit'}) %>
+    <link rel="stylesheet" href="/styles/newPost.css">
 
     <body>
-        <main class="container">
-            <div class="div2">
+        <%- include('include/_nav') %>
+        <div class="containerMain">
+            <div class="contentDiv">
                 <form class="form1" action="/posts" method="POST">
                     <div class="div3">
-                        <label class="label1" for="post">New Post</label>
-                        <input class="input1" type="text" placeholder="Enter Text Here" name="title" />
+                        <label class="label1" for="post">Post Title</label>
+                        <input class="input1" type="text" placeholder="Title" name="title" />
                     </div>
-                    <div class="div4">
+
                         <div class="div5">
                             <label class="label2" for="community">Community</label>
-                            <input class="input2" type="text" placeholder="Enter Community" name="community" />
+                            <input class="input2" type="text" placeholder="Community Name" name="community" />
                         </div>
                         <div class="div6">
                             <label class="label3" for="body">Image URL</label>
-                            <input class="input3" text="text" placeholder="Add an image if you want" name="image" />
+                            <input class="input3" text="text" placeholder="http:// (Optional)" name="image" />
                         </div>
                         <div class="div7">
                             <label class="label4" for="body">Text Body</label>
-                            <textarea class="input4" type="text" placeholder="Enter text body" name="body"></textarea>
+                            <textarea class="input4" type="text" placeholder="Text (optional)" name="body"></textarea>
                         </div>
-                        <button class="button1">Create a post</button>
+                        <button class="createButton">Post</button>
                 </form>
             </div>
+        </div>
+        <div class="sidebar">
+            <div class="topCommunities">
+                Top Communities!
+                <hr>
+                <ol>
+                    <li>r/example 1</li>
+                    <li>r/example 2</li>
+                    <li>r/example 3</li>
+                    <li>r/example 4</li>
+                    <li>r/example 5</li>
+                </ol>
+            </div>
+        </div>
     </body>
-    </main>
-
     </html>

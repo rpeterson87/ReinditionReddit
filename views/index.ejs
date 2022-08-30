@@ -1,47 +1,58 @@
 <!-- include header -->
-<%- include('include/_header') %>
-<!-- /include header -->
-<body>
-    
-        <% for (let i = 0; i < posts.length; i++){ %>
+<%- include('include/_header',{page: 'RenditionReddit'}) %>
+    <!-- /include header -->
+
+    <body>
+
+<%- include('include/_nav') %>
+    <% if (session.currentUser){ %>
+        <h1> <%= session.currentUser.username %> </h1> 
+    <% } %>
+        
+        <% for (let i=0; i < posts.length; i++){ %>
             <a href="/posts/<%= posts[i]._id %>" class="containerMain">
                 <div class="contentDiv">
                     <p class="contentCommunity">
                         r/<%= posts[i].community %>
-                        <span class="contentAuthor"> Posted by: (username placeholder) - <%= posts[i].createdAt %></span>
+                            <span class="contentAuthor"> Posted by: (username placeholder) - <%= posts[i].createdAt %>
+                            </span>
                     </p>
-                    
-                       
-                    <p class="contentTitle"><%= posts[i].title%></p>
+
+
+                    <p class="contentTitle">
+                        <%= posts[i].title%>
+                    </p>
                     <img class="contentImage" src="<%= posts[i].image %>">
                     <% if(!posts[i].image) { %>
                         <p class="contentBody">
                             <%= posts[i].body %>
                         </p>
-                    <%}%>
+                        <%}%>
                 </div>
-            </a>  
-        <% } %>
-        <div class="sidebar">
-            <div class="topCommunities">
-                Top Communities! <hr>
-                <ol>
-                    <li>r/example 1</li>
-                    <li>r/example 2</li>
-                    <li>r/example 3</li>
-                    <li>r/example 4</li>
-                    <li>r/example 5</li>
-                </ol>
-            </div>
-            <div class="createOrPost">
-                <p>
-                    Feel free to make your own community or select one from the feed and add your own post!
-                </p>
-                <form action="/posts/new">
-                    <input type="submit" value="Create Community" class="createButton">
-                </form>
-            </div>
-        </div>
-    
-</body>
-</html>
+            </a>
+            <% } %>
+                <div class="sidebar">
+                    <div class="topCommunities">
+                        Top Communities!
+                        <hr>
+                        <ol>
+                            <li>r/example 1</li>
+                            <li>r/example 2</li>
+                            <li>r/example 3</li>
+                            <li>r/example 4</li>
+                            <li>r/example 5</li>
+                        </ol>
+                    </div>
+                    <div class="createOrPost">
+                        <p>
+                            Feel free to make your own community or select one from the feed and add your own post!
+                        </p>
+                        <form action="/posts/new">
+                            <input type="submit" value="Create Post" class="createButton">
+                        </form>
+                    </div>
+                </div>
+
+    </body>
+
+    </html>

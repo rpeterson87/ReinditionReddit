@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 body {
     display: grid;
+    grid-template-rows: 3em 1fr;
     grid-template-columns: 1fr 40em 20em 1fr;
     background-color: black;
     color: rgb(215,215,215);
@@ -8,7 +10,7 @@ body {
 }
 .contentDiv {
     display: grid;
-    grid-template-rows: fit-content;
+    grid-template-rows: 2;
     grid-template-columns: 3em 1fr;
     background-color: rgb(26,26,27);
     border: 1px solid rgb(52,53,54);
@@ -99,11 +101,11 @@ ol {
 .sidebar {
     display: flex;
     flex-direction: column;
-    grid-row: 1 / 10;
+    grid-row: 2 / 10;
     grid-column: 3;
     row-gap: 0.7em;
 }
-.createButton {
+.createButton, .editButton, .deleteButton {
     max-width: 100%;
     font-size: 1.2rem;
     border-radius: 9999px;
@@ -113,4 +115,44 @@ ol {
     margin-bottom: 1em;
     cursor: pointer;
 }
+.logo {
+    display: flex;
+    align-items: center;
+    width: 2.5em;
+    text-decoration: none;
+    padding: 0.1em 0 0.1em 0.3em;
+}
 
+.logoName {
+    display: flex;
+    align-items: center;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2em;
+    text-decoration: none;
+    color: rgb(215,215,215);
+    padding-left: 0.3em
+
+}
+nav {
+    display: flex;
+    grid-row: 1;
+    grid-column: 1/ span 4;
+    background-color: rgb(26,26,27);
+    width: 100%;
+}
+.loginButton, .registerButton {
+    display: block;
+    align-items: center;
+    max-width: 100%;
+    font-size: 1.2rem;
+    border-radius: 9999px;
+    padding-left: 2em;
+    padding-right: 2em;
+    cursor: pointer;
+    margin-top: 0.5em;
+}
+.navform {
+    display: flex;
+    padding-right: 0.5em;
+    margin-left: auto;
+}
