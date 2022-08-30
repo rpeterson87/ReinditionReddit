@@ -1,15 +1,15 @@
-<%- include('include/_header',{page: 'RenditionReddit'}) %>
+<%- include('include/_header',{page: 'RenditionReddit' }) %>
     <link rel="stylesheet" href="/styles/newPost.css">
 
     <body>
         <%- include('include/_nav') %>
-        <div class="containerMain">
-            <div class="contentDiv">
-                <form class="form1" action="/posts" method="POST">
-                    <div class="div3">
-                        <label class="label1" for="post">Post Title</label>
-                        <input class="input1" type="text" placeholder="Title" name="title" />
-                    </div>
+            <div class="containerMain">
+                <div class="contentDiv">
+                    <form class="form1" action="/posts" method="POST">
+                        <div class="div3">
+                            <label class="label1" for="post">Post Title</label>
+                            <input class="input1" type="text" placeholder="Title" name="title" />
+                        </div>
 
                         <div class="div5">
                             <label class="label2" for="community">Community</label>
@@ -24,21 +24,22 @@
                             <textarea class="input4" type="text" placeholder="Text (optional)" name="body"></textarea>
                         </div>
                         <button class="createButton">Post</button>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="sidebar">
-            <div class="topCommunities">
-                Top Communities!
-                <hr>
-                <ol>
-                    <li>r/example 1</li>
-                    <li>r/example 2</li>
-                    <li>r/example 3</li>
-                    <li>r/example 4</li>
-                    <li>r/example 5</li>
-                </ol>
+            <div class="sidebar">
+                <div class="topCommunities">
+                    Top Communities!
+                    <hr>
+                    <ol>
+                        <li>r/example 1</li>
+                        <li>r/example 2</li>
+                        <li>r/example 3</li>
+                        <li>r/example 4</li>
+                        <li>r/example 5</li>
+                    </ol>
+                </div>
             </div>
-        </div>
     </body>
+
     </html>
