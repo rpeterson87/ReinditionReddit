@@ -10,7 +10,7 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
 // MODEL IMPORT
-const {User} = require('../models');
+const { User } = require('../models');
 console.log(User);
 
 // GET LOGIN ROUTE 
@@ -30,7 +30,7 @@ router.post('/login', async (req, res, next) => {
         // this checks the boolean if the user exists
         let foundUser = await User.findOne({ email: formData.email });
         if (!foundUser) {
-            return res.redirect('/register')
+            return res.redirect('/register');
         } else {
             const match = await bcrypt.compare(formData.password, foundUser.password);
             if (!match) return res.send(`email or password doesn't match`);
@@ -54,19 +54,19 @@ router.post('/register', async (req, res, next) => {
 
     try {
         let formData = req.body;
-        console.log(`created ${formData}`)
+        console.log(`created ${formData}`);
         let foundUser = await User.exists({ email: formData.email });
         if (foundUser) {
-            return res.redirect('/login')
+            return res.redirect('/login');
         } else {
-            let rounds = parseInt(process.env.SALT_ROUNDS)
+            let rounds = parseInt(process.env.SALT_ROUNDS);
             let salt = await bcrypt.genSalt(rounds);
             let hash = await bcrypt.hash(formData.password, salt);
             formData.password = hash;
 
             const newUser = await User.create(formData);
-            console.log(`create ${newUser}`)
-            return res.redirect('/login')
+            console.log(`create ${newUser}`);
+            return res.redirect('/login');
         }
 
 
@@ -92,4 +92,4 @@ router.get("/logout", async function (req, res) {
 
 
 // EXPORT
-module.exports = router
+module.exports = router;
