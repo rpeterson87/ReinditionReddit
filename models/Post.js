@@ -16,7 +16,7 @@ const postSchema = new mongoose.Schema(
         },
         image: {type: String},
         username: {type: String},
-        comments: [{username: {type: String}, body: {type: String}}]
+        comments: [ {type: String}]
     },
     { timestamps: true },
     

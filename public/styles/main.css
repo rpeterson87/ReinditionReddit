@@ -10,7 +10,7 @@ body {
 }
 .contentDiv {
     display: grid;
-    grid-template-rows: 2;
+    /* grid-template-rows: minmax(2, max-content); */
     grid-template-columns: 3em 1fr;
     background-color: rgb(26,26,27);
     border: 1px solid rgb(52,53,54);
