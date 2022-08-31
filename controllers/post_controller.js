@@ -59,6 +59,7 @@ router.get('/:id', async (req, res) => {
     try {
 
         const foundPost = await db.Posts.findById(req.params.id)
+        console.log(foundPost)
         const postInfo = await db.Posts.find({ post: foundPost._id })
         let context = { posts: foundPost, id: foundPost._id}
         if(req.session){
@@ -89,12 +90,14 @@ router.get('/:id/edit', async (req, res) => {
 
         const editPost = await db.Posts.findById(req.params.id)
         let context = { post: editPost, id: editPost._id }
-        if(req.session){
+        if(req.session.currentUser){
             console.log(req.session)
             const session = req.session;
             context = { post: editPost, id: editPost._id, session: session}
+            res.render('edit.ejs', context)
+        } else {
+            res.redirect('/login')
         }
-        res.render('edit.ejs', context)
 
 
     } catch (err) {
