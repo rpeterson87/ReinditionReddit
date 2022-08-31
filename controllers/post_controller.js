@@ -28,7 +28,6 @@ router.get('/', async (req, res) => {
 // NEW / GET- localhost:4000/posts/new
 router.get('/new', (req, res) => {
     try {
-
         if(req.session){
             console.log(req.session)
             const session = req.session;

@@ -40,7 +40,12 @@ app.get('/', (req, res) => {
 
 // 404 Wildcard Route
 app.route('/*').all((req, res) => {
-    res.render('404')
+    if(req.session){
+        console.log(req.session)
+        const session = req.session;
+        context = { session: session}
+    }
+    res.render('404',context)
 });
 
 // SERVER
