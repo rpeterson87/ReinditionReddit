@@ -45,7 +45,6 @@ router.post('/', async (req, res, next) => {
     const createdPost = req.body;
     try {
         const newPost = await db.Posts.create(createdPost);
-
         res.redirect('/posts');
     } catch (err) {
         console.log(err);
@@ -56,12 +55,16 @@ router.post('/', async (req, res, next) => {
 // SHOW / GET - localhost:4000/posts/_id
 router.get('/:id', async (req, res) => {
     try {
+        let postID = req.params.id;
         const foundPost = await db.Posts.findById(req.params.id)
         const postInfo = await db.Posts.find({ post: foundPost._id })
-        let context = { posts: foundPost, id: foundPost._id}
+        const postComment = await db.Comment.find({postID})
+        console.log(postComment)
+        let context = { posts: foundPost, id: foundPost._id, comment: postComment}
+
         if(req.session){
             const session = req.session;
-            context = { posts: foundPost, id: foundPost._id, session: session}
+            context = { posts: foundPost, id: foundPost._id, comment: postComment, session: session}
         }
         res.render('show.ejs', context)
 
@@ -102,7 +105,7 @@ router.get('/:id/edit', async (req, res) => {
 // COMMENTS ROUTE
 router.put('/:id/comments', async (req, res, next) => {
     try{
-        let post =  await db.Posts.findByIdAndUpdate(req.params.id, {'$push': {'comments': req.body.comments}})
+        let post = await db.Comment.create(req.body);
     res.redirect(`/posts/${req.params.id}`)
     } catch(err) {
         console.log(err)
