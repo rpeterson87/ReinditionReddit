@@ -10,6 +10,7 @@
     </a>
     <a class="logoName" href="/posts">RenditionReddit</a>
     <div class="navform">
+
         <% if(session.currentUser) { %>
             <p class="username"><%=session.currentUser.username%></p>
             <form action="/logout">
@@ -23,5 +24,6 @@
                 <input style="display: inline" type="submit" value="Register" class="registerButton">
             </form>
         <%}%>
+
     </div>
 </nav>

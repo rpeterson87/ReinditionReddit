@@ -15,19 +15,20 @@ router.get('/', async (req, res) => {
     try {
         const posts = await db.Posts.find();
         let context = { posts: posts };
-        if(req.session){
-            console.log(req.session)
+        if (req.session) {
+            console.log(req.session);
             const session = req.session;
-            context = { posts: posts, session: session}
+            context = { posts: posts, session: session }
         }
         res.render('index.ejs', context);
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 });
 // NEW / GET- localhost:4000/posts/new
 router.get('/new', (req, res) => {
     try {
+
         if(req.session){
             console.log(req.session)
             const session = req.session;
@@ -35,7 +36,7 @@ router.get('/new', (req, res) => {
         }
         res.render('new.ejs', context)
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 });
 
@@ -50,11 +51,12 @@ router.post('/', async (req, res, next) => {
         console.log(err);
         next();
     }
-})
+});
 
 // SHOW / GET - localhost:4000/posts/_id
 router.get('/:id', async (req, res) => {
     try {
+
         const foundPost = await db.Posts.findById(req.params.id)
         const postInfo = await db.Posts.find({ post: foundPost._id })
         let context = { posts: foundPost, id: foundPost._id}
@@ -64,16 +66,17 @@ router.get('/:id', async (req, res) => {
             context = { posts: foundPost, id: foundPost._id, session: session}
         }
         res.render('show.ejs', context)
+
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 });
 // DESTROY / DELETE  - localhost:4000/posts/<_id>
-router.delete('/:id', async (req,res) => {
-    try{
-       const deletePost = await db.Posts.findByIdAndDelete(req.params.id); 
-       return res.redirect('/posts');
-    }catch(error){
+router.delete('/:id', async (req, res) => {
+    try {
+        const deletePost = await db.Posts.findByIdAndDelete(req.params.id);
+        return res.redirect('/posts');
+    } catch (error) {
         req.error = error;
         console.log(error);
         res.redirect('/404');
@@ -82,6 +85,7 @@ router.delete('/:id', async (req,res) => {
 // EDIT / GET - localhost:4000/posts/<_id>/edit
 router.get('/:id/edit', async (req, res) => {
     try {
+
         const editPost = await db.Posts.findById(req.params.id)
         let context = { post: editPost, id: editPost._id }
         if(req.session){
@@ -91,8 +95,9 @@ router.get('/:id/edit', async (req, res) => {
         }
         res.render('edit.ejs', context)
 
+
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 });
 
@@ -100,10 +105,10 @@ router.get('/:id/edit', async (req, res) => {
 // UPDATE / PUT- localhost:4000/posts/<_id>
 // update route
 router.put("/:id", async (req, res, next) => {
-        console.log("we made it")
+    console.log("we made it");
     try {
         const updatedPost = req.body;
-        await db.Posts.findByIdAndUpdate(req.params.id, updatedPost, { new: true })
+        await db.Posts.findByIdAndUpdate(req.params.id, updatedPost, { new: true });
 
         res.redirect(`/posts/${req.params.id}`);
     } catch (err) {
