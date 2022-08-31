@@ -1,6 +1,8 @@
 .commentBox {
+    display: block;
     grid-column: 2;
-    grid-row:5;
+    grid-row:5/auto;
+    height: fit-content;
 }
 textarea {
     background-color: rgb(26,26,27);
@@ -11,8 +13,6 @@ textarea {
     font-size: 1em;
 }
 .commentButton{
-    display: flex;
-    background-color: red;
     max-width: 100%;
     font-size: 1.2rem;
     border-radius: 9999px;
@@ -25,4 +25,15 @@ textarea {
 button {
     display: flex;
     margin: 0.5em 1em 0.5em auto;
+}
+.comment {
+    display: block;
+    width: 95%;
+    grid-column: 2;
+    margin: 0.5em;
+}
+.commentBody {
+    display: block;
+    width: 95%;
+    grid-column: 2;
 }

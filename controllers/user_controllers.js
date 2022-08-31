@@ -11,12 +11,12 @@ router.use(express.urlencoded({ extended: true }));
 
 // MODEL IMPORT
 const { User } = require('../models');
-console.log(User);
+
 
 // GET LOGIN ROUTE 
 router.get('/login', (req, res) => {
     if(req.session){
-        console.log(req.session)
+
         const session = req.session;
         context = { session: session}
     }
@@ -26,7 +26,7 @@ router.get('/login', (req, res) => {
 // GET REGISTER ROUTE
 router.get('/register', (req, res) => {
     if(req.session){
-        console.log(req.session)
+
         const session = req.session;
         context = { session: session}
     }
@@ -64,7 +64,7 @@ router.post('/register', async (req, res, next) => {
 
     try {
         let formData = req.body;
-        console.log(`created ${formData}`);
+
         let foundUser = await User.exists({ email: formData.email });
         if (foundUser) {
             return res.redirect('/login');
@@ -75,7 +75,7 @@ router.post('/register', async (req, res, next) => {
             formData.password = hash;
 
             const newUser = await User.create(formData);
-            console.log(`create ${newUser}`);
+
             return res.redirect('/login');
         }
 
