@@ -156,3 +156,11 @@ nav {
     padding-right: 0.5em;
     margin-left: auto;
 }
+.username {
+    display: flex;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2em;
+    align-items: center;
+    margin: 0;
+    padding-right: 0.5em;
+}
