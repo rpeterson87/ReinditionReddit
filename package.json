@@ -29,6 +29,7 @@
     "init": "^0.1.2",
     "method-override": "^3.0.0",
     "mongoose": "^6.5.3",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "upvote": "^1.1.1"
   }
 }

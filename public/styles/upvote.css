@@ -1,6 +1,4 @@
 * {
-    margin: 0;
-    padding: 0;
     font-family: sans-serif;
     outline: none;
 }
@@ -8,18 +6,20 @@
 body {
     min-height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(26, 26, 27);
+    padding: 5px;
 }
 
 .voting {
-    position: relative;
-    border: 3 px solid #303030;
-    border-radius: 4px;
-    padding: 5px;
+    border: none;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+
+img {
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
 }
 
 input {
@@ -28,7 +28,7 @@ input {
     background: none;
     color: #919191;
     font-size: 30px;
-    margin: 0px 10px;
+    margin: 0px;
 }
 
 button {
@@ -36,9 +36,6 @@ button {
     background: none;
     border: none;
     font-size: 30px;
-    padding: 0px 15px;
-    margin: 10px 0px;
-    margin-left: 20px;
     cursor: pointer;
 }
 
