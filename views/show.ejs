@@ -21,21 +21,29 @@
                     <p class="contentBody">
                         <%= posts.body %>
                     </p>
+
+
                     <form class="commentBox" action="/posts/<%= id%>/comments?_method=PUT" method="POST">
+                        <% if(session.currentUser) { %>
                         <div>
-                            <textarea class="input4" type="text" placeholder="Add comment" name="comments"></textarea>
+                            <input hidden type="text" value="<%= session.currentUser.username %>" name="username"></input>
+                            <input hidden type="text" value="<%= id %>" name="postID"></input>
+                            <textarea class="input4" type="text" placeholder="Add comment" name="body"></textarea>
                         </div>
-                        <button class="createButton">Comment</button>
+                            <button class="createButton">Comment</button>
+                        <%}%>
+                        <hr style="width:95%; margin-right:2em">
                     </form>
-  
-                    <% for (let i=0; i < posts.comments.length; i++){ %>
-                        <% if(posts.comments[i]){ %>
+                    
+
+                    <% for (let i=0; i < comment.length; i++){ %>
+                        <% if(comment[i]){ %>
                             <div class="comment">
                                 <div class="contentAuthor">
-                                    <%= session.currentUser.username %>  - <%= posts.createdAt %>
+                                      <%= comment[i].username%>
                                 </div>
                                 <div class="commentBody">
-                                    <%= posts.comments[i] %>
+                                    <%= comment[i].body %>
                                 </div>
                             </div>
                        <% } %>
