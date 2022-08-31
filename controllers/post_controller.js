@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const { Posts } = require('../models');
 const router = express.Router();
 
@@ -27,7 +28,12 @@ router.get('/', async (req, res) => {
 // NEW / GET- localhost:4000/posts/new
 router.get('/new', (req, res) => {
     try {
-        res.render('new.ejs')
+        if(req.session){
+            console.log(req.session)
+            const session = req.session;
+            context = { session: session}
+        }
+        res.render('new.ejs', context)
     } catch (err) {
         console.log(err)
     }
@@ -51,7 +57,13 @@ router.get('/:id', async (req, res) => {
     try {
         const foundPost = await db.Posts.findById(req.params.id)
         const postInfo = await db.Posts.find({ post: foundPost._id })
-        res.render('show.ejs', { posts: foundPost, id: foundPost._id })
+        let context = { posts: foundPost, id: foundPost._id}
+        if(req.session){
+            console.log(req.session)
+            const session = req.session;
+            context = { posts: foundPost, id: foundPost._id, session: session}
+        }
+        res.render('show.ejs', context)
     } catch (err) {
         console.log(err)
     }
@@ -71,7 +83,13 @@ router.delete('/:id', async (req,res) => {
 router.get('/:id/edit', async (req, res) => {
     try {
         const editPost = await db.Posts.findById(req.params.id)
-        res.render('edit.ejs', { post: editPost, id: editPost._id })
+        let context = { post: editPost, id: editPost._id }
+        if(req.session){
+            console.log(req.session)
+            const session = req.session;
+            context = { post: editPost, id: editPost._id, session: session}
+        }
+        res.render('edit.ejs', context)
 
     } catch (err) {
         console.log(err)

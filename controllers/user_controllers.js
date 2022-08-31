@@ -15,7 +15,12 @@ console.log(User);
 
 // GET LOGIN ROUTE 
 router.get('/login', (req, res) => {
-    res.render('users/login.ejs');
+    if(req.session){
+        console.log(req.session)
+        const session = req.session;
+        context = { session: session}
+    }
+    res.render('users/login.ejs',context);
 });
 
 // GET REGISTER ROUTE
