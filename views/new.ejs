@@ -23,8 +23,13 @@
                             <label class="label4" for="body">Text Body</label>
                             <textarea class="input4" type="text" placeholder="Text (optional)" name="body"></textarea>
                         </div>
+                        <div class="div7">
+                            <label hidden class="label" for="username">Username</label>
+                            <input hidden class="input3" type="text" value="<%= session.currentUser.username %>" name="username"></input>
+                        </div>
                         <button class="createButton">Post</button>
                     </form>
+                    <!-- posts.username = session.currentUser.username -->
                 </div>
             </div>
             <div class="sidebar">
