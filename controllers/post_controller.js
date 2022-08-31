@@ -28,12 +28,14 @@ router.get('/', async (req, res) => {
 // NEW / GET- localhost:4000/posts/new
 router.get('/new', (req, res) => {
     try {
-        if(req.session){
+        if(req.session.currentUser){
             console.log(req.session)
             const session = req.session;
             context = { session: session}
+            res.render('new.ejs', context)
+        } else {
+            res.redirect('/login');
         }
-        res.render('new.ejs', context)
     } catch (err) {
         console.log(err);
     }
