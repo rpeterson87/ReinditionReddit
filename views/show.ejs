@@ -1,5 +1,6 @@
 <!-- include header -->
 <%- include('include/_header',{page: 'RenditionReddit' }) %>
+<link rel="stylesheet" href="/styles/comment.css">
     <!-- /include header -->
 
     <body>
@@ -20,7 +21,12 @@
                     <p class="contentBody">
                         <%= posts.body %>
                     </p>
-
+                    <form class="commentBox">
+                        <div>
+                            <textarea class="input4" type="text" placeholder="Add comment" name="comment"></textarea>
+                        </div>
+                        <button class="createButton">Comment</button>
+                    </form>
                 </div>
             </div>
             <div class="sidebar">

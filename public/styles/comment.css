@@ -1,0 +1,28 @@
+.commentBox {
+    grid-column: 2;
+    grid-row:5;
+}
+textarea {
+    background-color: rgb(26,26,27);
+    width: 95%;
+    height: 5em;
+    color: rgb(210,210,210);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+.commentButton{
+    display: flex;
+    background-color: red;
+    max-width: 100%;
+    font-size: 1.2rem;
+    border-radius: 9999px;
+    padding-left: 2em;
+    padding-right: 2em;
+    text-align: center;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+button {
+    display: flex;
+    margin: 0.5em 1em 0.5em auto;
+}
