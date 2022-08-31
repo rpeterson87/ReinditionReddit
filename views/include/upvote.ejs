@@ -17,14 +17,16 @@
 
         <div class="voting">
             <button id="likebtn">
-                <i class="fa fa-thumbs-up"></i>
+                <img
+                    src="https://preview.redd.it/819e0p6if9k81.png?width=494&format=png&auto=webp&s=991aa7398b415a7ed77ec9f6609e0505e25eab18">
             </button>
             <input type="number" id="input1" value="0" name="">
 
             <button id="dislikebtn">
-                <i class="fa fa-thumbs-down"></i>
+                <img
+                    src="https://preview.redd.it/adlv9w5jf9k81.png?width=494&format=png&auto=webp&s=fbf357a21bc379d5765cbfa328b9a0144d89b319">
             </button>
-            <input type="number" id="input2" value="0" name="">
+            <input type="number" id="input2" name="">
         </div>
 
     </div>
@@ -34,7 +36,7 @@
         let input1 = document.querySelector('#input1');
         let input2 = document.querySelector('#input2');
         likebtn.addEventListener('click', () => { input1.value = parseInt(input1.value) + 1; })
-        dislikebtn.addEventListener('click', () => { input2.value = parseInt(input2.value) + 1; })
+        dislikebtn.addEventListener('click', () => { input1.value = parseInt(input1.value) - 1; })
     </script>
 </body>
 
