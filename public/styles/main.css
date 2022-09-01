@@ -30,6 +30,10 @@ body {
     grid-row: 3;
     grid-column: 2;
 }
+.contentImage>img {
+    max-height: fit-content;
+    max-width: 95%;
+}
 .contentTitle {
     display: relative;
     color: rgb(215,215,215);
@@ -166,4 +170,8 @@ nav {
     align-items: center;
     margin: 0;
     padding-right: 0.5em;
+}
+a {
+    text-decoration: none;
+    color: rgb(215,215,215);
 }
