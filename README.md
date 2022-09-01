@@ -12,12 +12,19 @@ This site is a reverse engineered version of the well known site Reddit. The sit
 HTML with no CSS applied
 
 <img width="700" alt="Shot 2022-09-01 at 9 26 28 AM" src="https://user-images.githubusercontent.com/9807461/187928692-ab974bf2-6c9d-46da-bd59-55816c41a827.png">
+
 Preliminary CSS applied
 
 <img width="700" alt="Screen Shot 2022-09-01 at 9 28 26 AM" src="https://user-images.githubusercontent.com/9807461/187928702-f6d26086-d0c3-44b7-8784-b6b1d56eab6a.png">
+
 Final CSS styling:
 
 <img width="700" alt="Screen Shot 2022-09-01 at 9 29 46 AM" src="https://user-images.githubusercontent.com/9807461/187937738-20c121ce-5e08-48c7-97d6-bec5860c2982.png">
+
+Final show page with comment section:
+
+<img width="700" alt="Screen Shot 2022-09-01 at 10 36 05 AM" src="https://user-images.githubusercontent.com/109879521/187941241-4d7e854f-c8fe-4777-9dd1-c29a9275b978.png">
+
 
 ## Technologies Used
 HTML, CSS, , EJS, Mongoose, MongoDB, Node Express
