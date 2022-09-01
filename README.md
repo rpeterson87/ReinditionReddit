@@ -35,4 +35,23 @@ The code snippet below displays one of the more challenging routes. The show rou
 
 <img width="700" alt="Screen Shot 2022-09-01 at 10 07 05 AM" src="https://user-images.githubusercontent.com/109879521/187934421-23ed9ae6-ebc9-44e5-8398-0f39ac547c95.png">
 
+## User Stories
+At RenditionReddit, we are always keeping an ear to the ground to listen for ideas from our users.
+Below you will find the feedback we have recieved thus far. 
+
+### User Story #1
+As a frequent user of RenditionReddit, I want to see the addition of a feature that allows me to stay logged in after leaving the site so that I can easily return without having to go back through the process of logging in.
+
+### User Story #2
+As a photographer on RenditionReddit,  I would like to be able to upload photos directly to the site 
+so that I can attach images to my post instead of using links to third-party image hosts.
+
+### User Story #3
+As a content creator on RenditionReddit who typically works closely with moderators, I would like to be able to add moderators to my RenditionReddit community so that I can delegate some of the admin tasks.
+
+### User Story #4
+As a user who enjoys the comment section of RenditionReddit, I would like to be able to sort the comment section by different methods such as top, most recent and most controversial comments so that I can more easily navigate the comments.
+
+### User Story #5
+As a user of RenditionReddit who likes to let my personality project onto my social media presence, I would like to be able to add a profile picture so that I can have a little more individuality from other users.
 ## Future Goals
