@@ -7,7 +7,7 @@
         <%- include('include/_nav') %>
 
             <% for (let i=0; i < posts.length; i++){ %>
-                <a href="/posts/<%= posts[i]._id %>" class="containerMain">
+                <div class="containerMain">
                     <div class="contentDiv">
                         <div class='voteContainer'>
                             <form action="/posts/<%= posts[i]._id %>/vote?_method=PUT" method="POST">
@@ -30,21 +30,25 @@
                             </div>
                         <p class="contentCommunity">
                             r/<%= posts[i].community %>
+
                                 <span class="contentAuthor"> - <%= posts[i].username %> - <%= posts[i].createdAt
                                         %>
                                 </span>
                         </p>
+
                         <p class="contentTitle">
-                            <%= posts[i].title%>
+                            <a href="/posts/<%= posts[i]._id %>"><%= posts[i].title%></a>
                         </p>
-                        <img class="contentImage" src="<%= posts[i].image %>">
+
+                        <a href="/posts/<%= posts[i]._id%>" class="contentImage"><img src="<%= posts[i].image %>" href="/posts/<%= posts[i]._id%>"></a>
+
                         <% if(!posts[i].image) { %>
                             <p class="contentBody">
-                                <%= posts[i].body %>
+                                <a href="/posts/<%= posts[i]._id%>"><%= posts[i].body %></a>
                             </p>
                             <%}%>
                     </div>
-                </a>
+                </div>
                 <% } %>
                     <div class="sidebar">
                         <div class="topCommunities">
