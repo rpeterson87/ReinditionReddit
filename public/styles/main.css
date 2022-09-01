@@ -194,4 +194,8 @@ nav {
 .voteTotal {
     color: rgb(215,215,215);
     margin: 0;
-
+}
+a {
+    text-decoration: none;
+    color: rgb(215,215,215);
+}
