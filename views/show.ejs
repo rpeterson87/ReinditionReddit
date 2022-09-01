@@ -90,12 +90,15 @@
                     <form action="/posts/new">
                         <input type="submit" value="Create Post" class="createButton">
                     </form>
-                    <% if(session.currentUser === posts.username) { %>
-                        <form action="/posts/<%=id%>/edit">
-                            <input type="submit" value="Edit Post" class="editButton">
-                        </form>
-                    <%}%>
+                    <% if(session.currentUser){%>
+                        <% if(session.currentUser.username == posts.username) { %>
+                            <form action="/posts/<%=id%>/edit">
+                                <input type="submit" value="Edit Post" class="editButton">
+                            </form>
+                           
+                            <%}%>
 
+                   <% } %>
                     <form action="/posts/<%= id %>?_method=DELETE" method="POST">
                         <input type="submit" class="deleteButton" value="Delete Post">
                     </form>
