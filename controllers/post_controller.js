@@ -59,7 +59,7 @@ router.get('/:id', async (req, res) => {
         const foundPost = await db.Posts.findById(req.params.id)
         const postInfo = await db.Posts.find({ post: foundPost._id })
         const postComment = await db.Comment.find({postID})
-        console.log(postComment)
+
         let context = { posts: foundPost, id: foundPost._id, comment: postComment}
 
         if(req.session){
@@ -106,7 +106,7 @@ router.get('/:id/edit', async (req, res) => {
 router.put('/:id/comments', async (req, res, next) => {
     try{
         let post = await db.Comment.create(req.body);
-    res.redirect(`/posts/${req.params.id}`)
+        res.redirect(`/posts/${req.params.id}`)
     } catch(err) {
         console.log(err)
         next()
@@ -117,6 +117,26 @@ router.put('/:id/comments', async (req, res, next) => {
 // update route
 router.put("/:id", async (req, res, next) => {
 
+    try {
+        const updatedPost = req.body;
+        await db.Posts.findByIdAndUpdate(req.params.id, updatedPost, { new: true });
+        res.redirect(`/posts`);
+    } catch (err) {
+        console.log(err)
+        next()
+    }
+});
+router.put("/:id/vote", async (req, res, next) => {
+    try {
+        const updatedPost = req.body;
+        await db.Posts.findByIdAndUpdate(req.params.id, updatedPost, { new: true });
+        res.redirect(`/posts`);
+    } catch (err) {
+        console.log(err)
+        next()
+    }
+});
+router.put("/:id/vote/show", async (req, res, next) => {
     try {
         const updatedPost = req.body;
         await db.Posts.findByIdAndUpdate(req.params.id, updatedPost, { new: true });
