@@ -37,3 +37,28 @@ button {
     width: 95%;
     grid-column: 2;
 }
+.upVote:hover{
+    color: rgb(204,55,0);
+}
+.downVote:hover{
+    color: rgb(88,114,200);
+}
+.upVote, .downVote {
+    color: rgb(100,100,100);
+    background: rgb(26,26,27);
+    border: none;
+}
+.voteContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 1/span 5;
+    width: 100%;
+    padding-left: 0.4em;
+    margin: 0;
+}
+.voteTotal {
+    color: rgb(215,215,215);
+    margin: 0 0.7em 0 0;
+}
