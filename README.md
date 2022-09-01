@@ -17,6 +17,7 @@ This site is a reverse engineered version of the well known site Reddit. The sit
 <img width="700" alt="Screen Shot 2022-09-01 at 9 28 26 AM" src="https://user-images.githubusercontent.com/9807461/187928702-f6d26086-d0c3-44b7-8784-b6b1d56eab6a.png">
 
 Final CSS styling:
+
 <img width="700" alt="Screen Shot 2022-09-01 at 9 29 46 AM" src="https://user-images.githubusercontent.com/9807461/187928694-6c06d9ae-a900-4b4f-8377-0cc1edb03a6a.png">
 
 ## Technologies Used
