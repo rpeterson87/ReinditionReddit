@@ -120,7 +120,18 @@ router.put("/:id", async (req, res, next) => {
     try {
         const updatedPost = req.body;
         await db.Posts.findByIdAndUpdate(req.params.id, updatedPost, { new: true });
-        res.redirect(`/posts/${req.params.id}`);
+        res.redirect(`/posts`);
+    } catch (err) {
+        console.log(err)
+        next()
+    }
+});
+router.put("/:id/vote", async (req, res, next) => {
+
+    try {
+        const updatedPost = req.body;
+        await db.Posts.findByIdAndUpdate(req.params.id, updatedPost, { new: true });
+        res.redirect(`/posts`);
     } catch (err) {
         console.log(err)
         next()

@@ -12,7 +12,10 @@ const postSchema = new mongoose.Schema(
         },
         body: {
             type: String,
-            required: true
+        },
+        voteTotal: {
+            type: Number,
+            default: 0
         },
         image: {type: String},
         username: {type: String},
