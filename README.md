@@ -6,16 +6,12 @@
 This site is a reverse engineered version of the well known site Reddit. The site provides users the ability to view posts made by other users with or without login. Once a user logs in, they are allowed to create posts and make comments. 
 
 ## Site progress via images
+HTML with no CSS applied
+
 <img width="700" alt="Shot 2022-09-01 at 9 26 28 AM" src="https://user-images.githubusercontent.com/9807461/187928692-ab974bf2-6c9d-46da-bd59-55816c41a827.png">
-
-<img width="700" alt="Screen Shot 2022-09-01 at 9 29 23 AM" src="https://user-images.githubusercontent.com/9807461/187928696-78f3610d-e53f-4aab-b7f3-a26b1bbba221.png">
-
-<img width="700" alt="Screen Shot 2022-09-01 at 9 29 18 AM" src="https://user-images.githubusercontent.com/9807461/187928699-b2584cc5-112e-4ef3-b2cc-3429f7e184ab.png">
-
-<img width="700" alt="Screen Shot 2022-09-01 at 9 28 37 AM" src="https://user-images.githubusercontent.com/9807461/187928700-089505e2-6a20-4f45-bd1e-9d0b803b36cc.png">
+Preliminary CSS applied
 
 <img width="700" alt="Screen Shot 2022-09-01 at 9 28 26 AM" src="https://user-images.githubusercontent.com/9807461/187928702-f6d26086-d0c3-44b7-8784-b6b1d56eab6a.png">
-
 Final CSS styling:
 
 <img width="700" alt="Screen Shot 2022-09-01 at 9 29 46 AM" src="https://user-images.githubusercontent.com/9807461/187937738-20c121ce-5e08-48c7-97d6-bec5860c2982.png">
