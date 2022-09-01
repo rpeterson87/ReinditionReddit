@@ -32,6 +32,7 @@ Node Express - Express is a minimal and flexible Node.js web application framewo
 
 ## Code Challenges
 The code snippet below displays one of the more challenging routes. The show route needed to incorporate the ability to find the specific ID of the post selected, then returning the entire database object (document) matching the given ID. Once this document has been found, the route then locates all comments that share the same post-ID and adds them to the 'context' variable to pass to the show.ejs page. In doing so, only the comments that are specific to that single post, are displayed. 
+
 <img width="700" alt="Screen Shot 2022-09-01 at 10 07 05 AM" src="https://user-images.githubusercontent.com/109879521/187934421-23ed9ae6-ebc9-44e5-8398-0f39ac547c95.png">
 
 ## Future Goals
