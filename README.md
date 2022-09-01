@@ -5,6 +5,9 @@
 ## Description
 This site is a reverse engineered version of the well known site Reddit. The site provides users the ability to view posts made by other users with or without login. Once a user logs in, they are allowed to create posts and make comments. 
 
+## Wireframe
+<img width="1000" alt="Screen Shot 2022-09-01 at 10 32 27 AM" src="https://user-images.githubusercontent.com/109879521/187940624-7f57edd8-f861-4807-82b8-178e5a392e71.png">
+
 ## Site progress via images
 HTML with no CSS applied
 
