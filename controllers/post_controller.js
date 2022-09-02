@@ -27,12 +27,13 @@ router.get('/', async (req, res) => {
     }
 });
 // NEW / GET- localhost:4000/posts/new
-router.get('/new', (req, res) => {
+router.get('/new', async (req, res) => {
     try {
         if(req.session.currentUser){
-       
+            const sorted = await db.Posts.find().sort({voteTotal:-1});
+            let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
             const session = req.session;
-            context = { session: session}
+            context = { session: session, uniqueComms}
             res.render('new.ejs', context)
         } else {
             res.redirect('/login');
