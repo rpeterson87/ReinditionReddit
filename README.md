@@ -22,6 +22,7 @@ Final CSS styling:
 <img width="700" alt="Screen Shot 2022-09-01 at 9 29 46 AM" src="https://user-images.githubusercontent.com/9807461/187937738-20c121ce-5e08-48c7-97d6-bec5860c2982.png">
 
 Final show page with comment section:
+(NOTE: Top Communities side bar gets updated as users upload more posts and begin voting on them. Currently the listing order is based on which community has a single highest upvoted post per community.)
 
 <img width="700" alt="Screen Shot 2022-09-01 at 10 36 05 AM" src="https://user-images.githubusercontent.com/109879521/187941241-4d7e854f-c8fe-4777-9dd1-c29a9275b978.png">
 
