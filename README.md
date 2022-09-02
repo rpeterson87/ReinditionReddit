@@ -22,6 +22,7 @@ Final CSS styling:
 <img width="700" alt="Screen Shot 2022-09-01 at 9 29 46 AM" src="https://user-images.githubusercontent.com/9807461/187937738-20c121ce-5e08-48c7-97d6-bec5860c2982.png">
 
 Final show page with comment section:
+(NOTE: Top Communities side bar gets updated as users upload more posts and begin voting on them. Currently the listing order is based on which community has a single highest upvoted post per community.)
 
 <img width="700" alt="Screen Shot 2022-09-01 at 10 36 05 AM" src="https://user-images.githubusercontent.com/109879521/187941241-4d7e854f-c8fe-4777-9dd1-c29a9275b978.png">
 
@@ -60,4 +61,6 @@ As a user who enjoys the comment section of RenditionReddit, I would like to be 
 
 ### User Story #5
 As a user of RenditionReddit who likes to let my personality project onto my social media presence, I would like to be able to add a profile picture so that I can have a little more individuality from other users.
+
 ## Future Goals
+Additional functionality regarding user login verification would be beneficial. Currently any email/username can be registered, with no verification of validity. This should be solved in a production setting. Additionally, being able to upload multiple images into a carousel on a post would be nice for communities such as DIY, ie; before and after images.
