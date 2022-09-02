@@ -57,16 +57,18 @@ router.post('/', async (req, res, next) => {
 // SHOW / GET - localhost:4000/posts/_id
 router.get('/:id', async (req, res) => {
     try {
+        const sorted = await db.Posts.find().sort({voteTotal:-1});
+        let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
         let postID = req.params.id;
         const foundPost = await db.Posts.findById(req.params.id)
         const postInfo = await db.Posts.find({ post: foundPost._id })
         const postComment = await db.Comment.find({postID})
 
-        let context = { posts: foundPost, id: foundPost._id, comment: postComment}
+        let context = { posts: foundPost, id: foundPost._id, comment: postComment,uniqueComms}
 
         if(req.session){
             const session = req.session;
-            context = { posts: foundPost, id: foundPost._id, comment: postComment, session: session}
+            context = { posts: foundPost, id: foundPost._id, comment: postComment, session: session, uniqueComms}
         }
         res.render('show.ejs', context)
 
