@@ -60,4 +60,6 @@ As a user who enjoys the comment section of RenditionReddit, I would like to be 
 
 ### User Story #5
 As a user of RenditionReddit who likes to let my personality project onto my social media presence, I would like to be able to add a profile picture so that I can have a little more individuality from other users.
+
 ## Future Goals
+Additional functionality regarding user login verification would be beneficial. Currently any email/username can be registered, with no verification of validity. This should be solved in a production setting. Additionally, being able to upload multiple images into a carousel on a post would be nice for communities such as DIY, ie; before and after images.
