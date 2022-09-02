@@ -2,7 +2,7 @@
 body {
     display: grid;
     grid-template-rows: 3em 1fr;
-    grid-template-columns: 1fr 40em 20em 1fr;
+    grid-template-columns: 1fr minmax(30em, 40em) minmax(10em, 15em) 1fr;
     background-color: black;
     color: rgb(215,215,215);
     column-gap: 1em;
@@ -10,7 +10,6 @@ body {
 }
 .contentDiv {
     display: grid;
-    grid-template-rows: 2;
     grid-template-columns: 3em 1fr;
     background-color: rgb(26,26,27);
     border: 1px solid rgb(52,53,54);
@@ -30,6 +29,10 @@ body {
     max-height: fit-content;
     grid-row: 3;
     grid-column: 2;
+}
+.contentImage>img {
+    max-height: fit-content;
+    max-width: 95%;
 }
 .contentTitle {
     display: relative;
@@ -68,12 +71,14 @@ body {
     grid-row: 1;
     grid-column: 2;
     margin: 0.3em;
+    z-index: 2;
 }
 .containerMain {
     font-family:Arial, Helvetica, sans-serif;
     text-decoration: none;
     grid-column: 2;
     width: 100%;
+    z-index: 1;
 }
 .topCommunities {
     text-align: center;
@@ -81,12 +86,14 @@ body {
     border: 1px solid rgb(52,53,54);
     border-radius: 4px;
     max-width: 100%;
-    font-size: 1.5em;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     grid-template-rows: fit-content;
     padding: 0.3em;
 }
-ol {
+li {
     text-align: left;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    
 }
 .createOrPost {
     background-color: rgb(26,26,27);
@@ -155,4 +162,40 @@ nav {
     display: flex;
     padding-right: 0.5em;
     margin-left: auto;
+}
+.username {
+    display: flex;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2em;
+    align-items: center;
+    margin: 0;
+    padding-right: 0.5em;
+}
+
+.upVote:hover{
+    color: rgb(204,55,0);
+}
+.downVote:hover{
+    color: rgb(88,114,200);
+}
+.upVote, .downVote {
+    color: rgb(100,100,100);
+    background: rgb(26,26,27);
+    border: none;
+}
+.voteContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 1/span 5;
+    width: 100%;
+}
+.voteTotal {
+    color: rgb(215,215,215);
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    color: rgb(215,215,215);
 }

@@ -1,5 +1,5 @@
 
-const express = require('express')
+const express = require('express');
 const methodOverride = require('method-override');
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -8,12 +8,12 @@ require('dotenv').config();
 // CONTROLLER IMPORTS
 const controllers = require('./controllers')
 
-const app = express()
+const app = express();
 const PORT = process.env.PORT
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 // MIDDLEWARE
-app.use(express.static('public'))
+app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
 app.use(
@@ -23,25 +23,30 @@ app.use(
         resave: false,
         saveUninitialized: false,
         cookie: {
-            maxAge: 1000 * 60 * 60 * 24 * 7, 
+            maxAge: 1000 * 60 * 60 * 24 * 7,
         },
     })
 );
 
 // MIDDLEWARE - code that runs for every request (before routes)
-app.use('/posts', controllers.posts)
-app.use('/', controllers.users)
+app.use('/posts', controllers.posts);
+app.use('/', controllers.users);
 
 
 //  home route
 app.get('/', (req, res) => {
     res.redirect(`/posts`)
-})
+});
 
 // 404 Wildcard Route
-app.route('/*').all((req,res)=>{
-    res.render('404')
-})
+app.route('/*').all((req, res) => {
+    if(req.session){
+
+        const session = req.session;
+        context = { session: session}
+    }
+    res.render('404',context)
+});
 
 // SERVER
-app.listen(PORT, () => console.log('starting server at port:', PORT))
+app.listen(PORT, () => console.log('starting server at port:', PORT));

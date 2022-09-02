@@ -19,7 +19,7 @@ const samplePosts = [
         community: 'memes',
         image: "https://i.guim.co.uk/img/media/a48763efc6a7f237fa557100fb11aa001b2960c2/0_42_745_447/master/745.jpg?width=620&quality=85&fit=max&s=ac2e557134126fb2f6569aea30c4cb42",
         body: "things can be said here"
-    },    {
+    }, {
         title: 'meme throwback',
         community: 'memes',
         image: "https://media.npr.org/assets/img/2015/03/03/overly_custom-39399d2cf8b6395770e3f10fd45b22ce39df70d4-s300-c85.webp",
@@ -33,7 +33,7 @@ async function reloadData() {
         console.log(deleted);
         let reloading = await db.Posts.insertMany(samplePosts);
         console.log(reloading);
-    } catch(err) {
+    } catch (err) {
         console.log(err);
     }
 }

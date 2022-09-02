@@ -1,0 +1,46 @@
+* {
+    font-family: sans-serif;
+    outline: none;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    padding: 5px;
+}
+
+.voting {
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+input {
+    width: 50px;
+    border: none;
+    background: none;
+    color: #919191;
+    font-size: 30px;
+    margin: 0px;
+}
+
+button {
+    color: #fff;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+button:active {
+    color: #004eff;
+    transform: scale(1.2);
+
+}
