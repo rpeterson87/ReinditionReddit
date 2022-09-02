@@ -13,11 +13,13 @@ const db = require('../models');
 // INDEX / GET - localhost:4000/posts
 router.get('/', async (req, res) => {
     try {
+        const sorted = await db.Posts.find().sort({voteTotal:-1});
+        let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
         const posts = await db.Posts.find();
         let context = { posts: posts };
         if (req.session) {
             const session = req.session;
-            context = { posts: posts, session: session }
+            context = { posts: posts, session: session, uniqueComms};
         }
         res.render('index.ejs', context);
     } catch (err) {
