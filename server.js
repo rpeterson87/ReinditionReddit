@@ -31,6 +31,7 @@ app.use(
 // MIDDLEWARE - code that runs for every request (before routes)
 app.use('/posts', controllers.posts);
 app.use('/', controllers.users);
+app.use('/', controllers.image);
 
 
 //  home route

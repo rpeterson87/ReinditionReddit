@@ -30,15 +30,15 @@ const { debugPort } = require('process');
 
 
 
-router.get('/new', (req, res) => {
+router.get('/images', (req, res) => {
     try {
         if (req.session.currentUser) {
 
             const session = req.session;
             context = { session: session }
-            res.render('new.ejs', context)
+            res.render('new_image.ejs', context)
         } else {
-            res.redirect('/login');
+            res.redirect('/posts');
         }
     } catch (err) {
         console.log(err);
@@ -46,7 +46,7 @@ router.get('/new', (req, res) => {
 });
 
 
-router.post('/', upload.single('img'), (req, res, next) => {
+router.post('/posts', upload.single('img'), (req, res, next) => {
     if (req.file){
     const obj = {
         title: req.body.title,
@@ -67,7 +67,7 @@ router.post('/', upload.single('img'), (req, res, next) => {
         else {
             // item.save();
             // res.send(obj)
-            res.redirect('/');
+            res.redirect('/posts');
         }
     });
 }else{
@@ -84,7 +84,7 @@ router.post('/', upload.single('img'), (req, res, next) => {
         else {
             // item.save();
             // res.send(obj)
-            res.redirect('/');
+            res.redirect('/posts');
         }
     });
 }
