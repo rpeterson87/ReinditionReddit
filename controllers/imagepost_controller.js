@@ -30,15 +30,17 @@ const { debugPort } = require('process');
 
 
 
-router.get('/images', (req, res) => {
-    try {
-        if (req.session.currentUser) {
 
+router.get('/images', async (req, res) => {
+    try {
+        if(req.session.currentUser){
+            const sorted = await db.Posts.find().sort({voteTotal:-1});
+            let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
             const session = req.session;
-            context = { session: session }
+            context = { session: session, uniqueComms}
             res.render('new_image.ejs', context)
         } else {
-            res.redirect('/posts');
+            res.redirect('/login');
         }
     } catch (err) {
         console.log(err);
