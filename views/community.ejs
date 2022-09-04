@@ -11,7 +11,7 @@
                     <div class="contentDiv">
                         
                         <div class='voteContainer'>
-                            <form action="/posts/<%= posts[i]._id %>/vote?_method=PUT" method="POST">
+                            <form action="/posts/<%= posts[i].community %>/<%= posts[i]._id %>/vote?_method=PUT" method="POST">
                                 <input hidden value="<%= posts[i].voteTotal +1 %>" name="voteTotal">
                                 <% if(!session.currentUser){ %>
                                     <button class='upVote' disabled="true">
@@ -25,7 +25,7 @@
                                </button>
                             </form>
                             <p class="voteTotal"><%= posts[i].voteTotal %></p>
-                            <form action="/posts/<%= posts[i]._id %>/vote?_method=PUT" method="POST">
+                            <form action="/posts/<%= posts[i].community %>/<%= posts[i]._id %>/vote?_method=PUT" method="POST">
                                 <input hidden value="<%= posts[i].voteTotal -1 %>" name="voteTotal">
                                 <% if(!session.currentUser){ %>
                                     <button class='downVote' disabled="true">
