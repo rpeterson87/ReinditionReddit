@@ -26,6 +26,23 @@ router.get('/', async (req, res) => {
         console.log(err);
     }
 });
+
+// Community Route
+router.get('/community/:community', async (req, res) => {
+    try {
+        const sorted = await db.Posts.find().sort({voteTotal:-1});
+        let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
+        const posts = await db.Posts.find({community: req.params.community});
+        let context = { posts: posts };
+        if (req.session) {
+            const session = req.session;
+            context = { posts: posts, session: session, uniqueComms};
+        }
+        res.render('community.ejs', context);
+    } catch (err) {
+        console.log(err);
+    }
+});
 // NEW / GET- localhost:4000/posts/new
 router.get('/new', async (req, res) => {
     try {

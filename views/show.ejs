@@ -75,7 +75,7 @@
                         <% if(comment[i]){ %>
                             <div class="comment">
                                 <div class="contentAuthor">
-                                    <%= comment[i].username%>
+                                    <%= comment[i].username%> - <%= comment[i].createdAt %>
                                 </div>
                                 <div class="commentBody">
                                     <%= comment[i].body %>
@@ -92,7 +92,7 @@
                     <hr>
                     <ol>
                         <% for(let i = 0; i < uniqueComms.length; i++){ %>
-                            <li>r/<%= uniqueComms[i].toLowerCase() %></li>
+                            <li><a href="/posts/community/<%= uniqueComms[i] %>">r/<%= uniqueComms[i].toLowerCase() %></a></li>
                             <% if(i === 4){break} %>
                         <%}%>
                     </ol>
