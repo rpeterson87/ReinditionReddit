@@ -158,6 +158,17 @@ router.put("/:id/vote", async (req, res, next) => {
         next()
     }
 });
+router.put("/:community/:id/vote", async (req, res, next) => {
+    console.log(req.params)
+    try {
+        const updatedPost = req.body;
+        await db.Posts.findByIdAndUpdate(req.params.id, updatedPost, { new: true });
+        res.redirect(`/posts/community/${req.params.community}`);
+    } catch (err) {
+        console.log(err)
+        next()
+    }
+});
 router.put("/:id/vote/show", async (req, res, next) => {
     try {
         const updatedPost = req.body;
