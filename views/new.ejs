@@ -5,7 +5,7 @@
         <%- include('include/_nav') %>
             <div class="containerMain">
                 <div class="contentDiv">
-                    <form class="form1" action="/posts" method="POST">
+                    <form class="form1" action="/posts" method="POST" enctype="multipart/form-data">
                         <div class="div3">
                             <label class="label1" for="post">Post Title</label>
                             <input class="input1" type="text" placeholder="Title" name="title" />
@@ -18,6 +18,10 @@
                         <div class="div6">
                             <label class="label3" for="body">Image URL</label>
                             <input class="input3" text="text" placeholder="http:// (Optional)" name="image" />
+                        </div>
+                        <div class="div5">
+                            <label for="img">Upload Image</label>
+                            <input type="file" id="img" name="img" value="">
                         </div>
                         <div class="div7">
                             <label class="label4" for="body">Text Body</label>

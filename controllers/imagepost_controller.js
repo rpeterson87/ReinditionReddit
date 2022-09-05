@@ -31,14 +31,15 @@ const { debugPort } = require('process');
 
 
 
-router.get('/images', async (req, res) => {
+router.get('/posts/new', async (req, res) => {
+    console.log(req.session.currentUser)
     try {
         if(req.session.currentUser){
             const sorted = await db.Posts.find().sort({voteTotal:-1});
             let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
             const session = req.session;
             context = { session: session, uniqueComms}
-            res.render('new_image.ejs', context)
+            res.render('new.ejs', context)
         } else {
             res.redirect('/login');
         }
@@ -54,7 +55,7 @@ router.post('/posts', upload.single('img'), (req, res, next) => {
         title: req.body.title,
         community: req.body.community,
         body: req.body.body,
-        
+        username: req.body.username,
         img: {
             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
             contentType: 'image/png'
@@ -73,11 +74,7 @@ router.post('/posts', upload.single('img'), (req, res, next) => {
         }
     });
 }else{
-    const obj = {
-        title: req.body.title,
-        community: req.body.community,
-        body: req.body.body,
-    }
+    const obj = req.body
     console.log(req.file)
     db.Posts.create(obj, (err, item) => {
         if (err) {

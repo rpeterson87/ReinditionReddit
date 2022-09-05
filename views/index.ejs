@@ -6,69 +6,77 @@
 
         <%- include('include/_nav') %>
 
-            <% for (let i=posts.length-1; i >= 0; i--){ %>
+            <% for (let i=posts.length-1; i>= 0; i--){ %>
                 <div class="containerMain">
                     <div class="contentDiv">
-                        
+
                         <div class='voteContainer'>
                             <form action="/posts/<%= posts[i]._id %>/vote?_method=PUT" method="POST">
                                 <input hidden value="<%= posts[i].voteTotal +1 %>" name="voteTotal">
                                 <% if(!session.currentUser){ %>
                                     <button class='upVote' disabled="true">
-                               <% } else { %>
-                                <button class='upVote'>
-                               <%}%>
+                                        <% } else { %>
+                                            <button class='upVote'>
+                                                <%}%>
 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="upVote" viewBox="0 0 16 16">
-                              <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
-                            </svg>
-                               </button>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                                        fill="currentColor" class="upVote" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z" />
+                                                    </svg>
+                                            </button>
                             </form>
-                            <p class="voteTotal"><%= posts[i].voteTotal %></p>
+                            <p class="voteTotal">
+                                <%= posts[i].voteTotal %>
+                            </p>
                             <form action="/posts/<%= posts[i]._id %>/vote?_method=PUT" method="POST">
                                 <input hidden value="<%= posts[i].voteTotal -1 %>" name="voteTotal">
                                 <% if(!session.currentUser){ %>
                                     <button class='downVote' disabled="true">
-                               <% } else { %>
-                                <button class='downVote'>
-                               <%}%>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="downVote" viewBox="0 0 16 16">
-                              <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
-                            </svg>
-                               </button>
+                                        <% } else { %>
+                                            <button class='downVote'>
+                                                <%}%>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                                        fill="currentColor" class="downVote" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                                                    </svg>
+                                            </button>
                             </form>
-                            </div>
+                        </div>
 
                         <p class="contentCommunity">
                             r/<%= posts[i].community %>
 
-                                <span class="contentAuthor"> - <%= posts[i].username %> - <%= posts[i].createdAt
-                                        %>
+                                <span class="contentAuthor"> - <%= posts[i].username %> - <%= posts[i].createdAt %>
                                 </span>
                         </p>
 
                         <p class="contentTitle">
-                            <a href="/posts/<%= posts[i]._id %>"><%= posts[i].title%></a>
+                            <a href="/posts/<%= posts[i]._id %>">
+                                <%= posts[i].title%>
+                            </a>
                         </p>
 
-                        <% if (posts[i].img.data !== undefined){%>
-                            <img class="contentImage" src="data:image/<%=posts[i].img.contentType%>;base64,
-                             <%=posts[i].img.data.toString('base64')%>"width="90%"%>
-                         <% } %>  
-                         <img class="contentImage" src="<%= posts[i].image %>" width="90%" >
-                            <% if(!posts[i].image) { %>
-                                <p class="contentBody">
-                                    <%= posts[i].body %>
-                                </p>
-                                <%}%>
+                        <% if (posts[i].img.data !==undefined){%>
+                            <a href="/posts/<%= posts[i]._id%>" class="contentImage"><img class="contentImage" src="data:image/<%=posts[i].img.contentType%>;base64,
+                             <%=posts[i].img.data.toString('base64')%>" %></a>
+                            <% } %>
+                                <a href="/posts/<%= posts[i]._id%>" class="contentImage"><img
+                                        src="<%= posts[i].image %>" href="/posts/<%= posts[i]._id%>"></a>
+                                <% if(!posts[i].image) { %>
+                                    <p class="contentBody">
+                                        <%= posts[i].body %>
+                                    </p>
+                                    <%}%>
 
-                        <a href="/posts/<%= posts[i]._id%>" class="contentImage"><img src="<%= posts[i].image %>" href="/posts/<%= posts[i]._id%>"></a>
 
-                        <% if(!posts[i].image) { %>
-                            <p class="contentBody">
-                                <a href="/posts/<%= posts[i]._id%>"><%= posts[i].body %></a>
-                            </p>
-                            <%}%>
+
+                                        <% if(!posts[i].image) { %>
+                                            <p class="contentBody">
+
+                                            </p>
+                                            <%}%>
                     </div>
                 </div>
                 <% } %>
@@ -77,10 +85,11 @@
                             Top Communities!
                             <hr>
                             <ol>
-                                <% for(let i = 0; i < uniqueComms.length; i++){ %>
-                                    <li>r/<%= uniqueComms[i].toLowerCase() %></li>
-                                    <% if(i === 4){break} %>
-                                <%}%>
+                                <% for(let i=0; i < uniqueComms.length; i++){ %>
+                                    <li>r/<%= uniqueComms[i].toLowerCase() %>
+                                    </li>
+                                    <% if(i===4){break} %>
+                                        <%}%>
                             </ol>
                         </div>
                         <div class="createOrPost">
@@ -88,10 +97,7 @@
                                 Feel free to make your own community or select one from the feed and add your own post!
                             </p>
                             <form action="/posts/new">
-                                <input type="submit" value="Create Text Post" class="createButton">
-                            </form>
-                            <form action="/images">
-                                <input type="submit" value="Create Image Post" class="createButton">
+                                <input type="submit" value="Create Post" class="createButton">
                             </form>
                         </div>
                     </div>
