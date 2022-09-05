@@ -199,3 +199,6 @@ a {
     text-decoration: none;
     color: rgb(215,215,215);
 }
+.sidebarCommunity:hover {
+    text-decoration: underline;
+}
