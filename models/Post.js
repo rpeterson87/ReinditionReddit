@@ -19,6 +19,11 @@ const postSchema = new mongoose.Schema(
         },
         image: {type: String},
         username: {type: String},
+        img:
+        {
+        data: Buffer,
+        contentType: String
+        }
     },
     { timestamps: true },
     

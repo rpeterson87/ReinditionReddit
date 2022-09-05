@@ -55,6 +55,15 @@
                     </p>
                     <img class="contentImage" src="<%= posts.image %>">
 
+                    <!-- todo -->
+                    <% if (posts.img.data !== undefined){%>
+                        <img class="contentImage" src="data:image/<%=posts.img.contentType%>;base64,
+                     <%=posts.img.data.toString('base64')%>" width="90%">
+                      <% }else{%>
+                        <img class="contentImage" src="<%= posts.image %>"width="90%">
+                     <% } %>  
+
+
                     <p class="contentBody">
                         <%= posts.body %>
                     </p>
@@ -93,10 +102,12 @@
                     Top Communities!
                     <hr>
                     <ol>
+
                         <% for(let i = 0; i < uniqueComms.length; i++){ %>
                             <li class="sidebarCommunity"><a href="/posts/community/<%= uniqueComms[i] %>">r/<%= uniqueComms[i].toLowerCase() %></a></li>
                             <% if(i === 4){break} %>
                         <%}%>
+
                     </ol>
                 </div>
                 <div class="createOrPost">
@@ -115,7 +126,7 @@
                                 <input type="submit" class="deleteButton" value="Delete Post">
                             </form>
                             <%}%>
-                    <% } %>
+                                <% } %>
                 </div>
             </div>
 
