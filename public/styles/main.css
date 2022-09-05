@@ -73,6 +73,7 @@ body {
     margin: 0.3em;
     z-index: 2;
 }
+
 .containerMain {
     font-family:Arial, Helvetica, sans-serif;
     text-decoration: none;
@@ -200,5 +201,8 @@ a {
     color: rgb(215,215,215);
 }
 .sidebarCommunity:hover {
+    text-decoration: underline;
+}
+.postCommunity:hover {
     text-decoration: underline;
 }
