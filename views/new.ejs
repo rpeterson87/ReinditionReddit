@@ -13,7 +13,8 @@
 
                         <div class="div5">
                             <label class="label2" for="community">Community</label>
-                            <input class="input2" type="text" placeholder="Community Name" name="community" style='text-transform: lowercase'/>
+                            <input class="input2" type="text" placeholder="Community Name" name="community"
+                                style='text-transform: lowercase' />
                         </div>
                         <div class="div6">
                             <label class="label3" for="body">Image URL</label>
@@ -29,11 +30,12 @@
                         </div>
                         <div class="div7">
                             <label hidden class="label" for="username">Username</label>
-                            <input hidden class="input3" type="text" value="<%= session.currentUser.username %>" name="username"></input>
+                            <input hidden class="input3" type="text" value="<%= session.currentUser.username %>"
+                                name="username"></input>
                         </div>
                         <button class="createButton">Post</button>
                     </form>
-                   
+
                 </div>
             </div>
             <div class="sidebar">
@@ -41,10 +43,11 @@
                     Top Communities!
                     <hr>
                     <ol>
-                        <% for(let i = 0; i < uniqueComms.length; i++){ %>
-                            <li class="sidebarCommunity">r/<%= uniqueComms[i].toLowerCase() %></li>
-                            <% if(i === 4){break} %>
-                        <%}%>
+                        <% for(let i=0; i < uniqueComms.length; i++){ %>
+                            <li class="sidebarCommunity">r/<%= uniqueComms[i].toLowerCase() %>
+                            </li>
+                            <% if(i===4){break} %>
+                                <%}%>
                     </ol>
                 </div>
             </div>

@@ -36,10 +36,11 @@
                     Top Communities!
                     <hr>
                     <ol>
-                        <% for(let i = 0; i < uniqueComms.length; i++){ %>
-                            <li>r/<%= uniqueComms[i].toLowerCase() %></li>
-                            <% if(i === 4){break} %>
-                        <%}%>
+                        <% for(let i=0; i < uniqueComms.length; i++){ %>
+                            <li>r/<%= uniqueComms[i].toLowerCase() %>
+                            </li>
+                            <% if(i===4){break} %>
+                                <%}%>
                     </ol>
                 </div>
             </div>

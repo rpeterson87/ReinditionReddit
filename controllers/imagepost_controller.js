@@ -2,9 +2,9 @@ const express = require('express');
 const session = require('express-session');
 const { Posts } = require('../models');
 const router = express.Router();
-const fs = require('fs')
-const path = require('path')
-const multer = require('multer')
+const fs = require('fs');
+const path = require('path');
+const multer = require('multer');
 
 
 let storage = multer.diskStorage({
@@ -15,7 +15,7 @@ let storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + new Date().toISOString())
     }
 });
-  
+
 let upload = multer({ storage: storage });
 
 
@@ -32,14 +32,13 @@ const { debugPort } = require('process');
 
 
 router.get('/posts/new', async (req, res) => {
-    console.log(req.session.currentUser)
     try {
-        if(req.session.currentUser){
-            const sorted = await db.Posts.find().sort({voteTotal:-1});
+        if (req.session.currentUser) {
+            const sorted = await db.Posts.find().sort({ voteTotal: -1 });
             let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
             const session = req.session;
-            context = { session: session, uniqueComms}
-            res.render('new.ejs', context)
+            context = { session: session, uniqueComms }
+            res.render('new.ejs', context);
         } else {
             res.redirect('/login');
         }
@@ -50,45 +49,39 @@ router.get('/posts/new', async (req, res) => {
 
 
 router.post('/posts', upload.single('img'), (req, res, next) => {
-    if (req.file){
-    const obj = {
-        title: req.body.title,
-        community: req.body.community,
-        body: req.body.body,
-        username: req.body.username,
-        img: {
-            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-            contentType: 'image/png'
+    if (req.file) {
+        const obj = {
+            title: req.body.title,
+            community: req.body.community,
+            body: req.body.body,
+            username: req.body.username,
+            img: {
+                data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+                contentType: 'image/png'
+            }
+
         }
-        
+        db.Posts.create(obj, (err, item) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.redirect('/posts');
+            }
+        });
+    } else {
+        const obj = req.body;
+        db.Posts.create(obj, (err, item) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.redirect('/posts');
+            }
+        });
     }
-    console.log(req.file)
-    db.Posts.create(obj, (err, item) => {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            // item.save();
-            // res.send(obj)
-            res.redirect('/posts');
-        }
-    });
-}else{
-    const obj = req.body
-    console.log(req.file)
-    db.Posts.create(obj, (err, item) => {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            // item.save();
-            // res.send(obj)
-            res.redirect('/posts');
-        }
-    });
-}
 });
 
 
 
-module.exports = router
+module.exports = router;

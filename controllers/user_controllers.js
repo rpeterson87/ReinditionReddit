@@ -15,22 +15,22 @@ const { User } = require('../models');
 
 // GET LOGIN ROUTE 
 router.get('/login', (req, res) => {
-    if(req.session){
+    if (req.session) {
 
         const session = req.session;
-        context = { session: session}
+        context = { session: session };
     }
-    res.render('users/login.ejs',context);
+    res.render('users/login.ejs', context);
 });
 
 // GET REGISTER ROUTE
 router.get('/register', (req, res) => {
-    if(req.session){
+    if (req.session) {
 
         const session = req.session;
-        context = { session: session}
+        context = { session: session };
     }
-    res.render('users/register.ejs',context);
+    res.render('users/register.ejs', context);
 });
 
 // POST LOGIN ROUTE
@@ -52,7 +52,7 @@ router.post('/login', async (req, res, next) => {
         }
     } catch (error) {
         console.log(error);
-        next("this is broken");
+        next();
     }
 });
 
@@ -82,7 +82,7 @@ router.post('/register', async (req, res, next) => {
 
     } catch (error) {
         console.log(error);
-        next("this is broken");
+        next();
     }
 });
 

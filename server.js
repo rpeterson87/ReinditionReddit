@@ -6,7 +6,7 @@ const MongoStore = require("connect-mongo");
 require('dotenv').config();
 
 // CONTROLLER IMPORTS
-const controllers = require('./controllers')
+const controllers = require('./controllers');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -36,17 +36,17 @@ app.use('/', controllers.image);
 
 //  home route
 app.get('/', (req, res) => {
-    res.redirect(`/posts`)
+    res.redirect(`/posts`);
 });
 
 // 404 Wildcard Route
 app.route('/*').all((req, res) => {
-    if(req.session){
+    if (req.session) {
 
         const session = req.session;
-        context = { session: session}
+        context = { session: session };
     }
-    res.render('404',context)
+    res.render('404', context);
 });
 
 // SERVER
