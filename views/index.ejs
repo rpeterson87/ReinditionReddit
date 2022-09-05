@@ -1,15 +1,10 @@
-<!-- include header -->
 <%- include('include/_header',{page: 'RenditionReddit' }) %>
-    <!-- /include header -->
 
     <body>
-
         <%- include('include/_nav') %>
-
             <% for (let i=posts.length-1; i>= 0; i--){ %>
                 <div class="containerMain">
                     <div class="contentDiv">
-
                         <div class='voteContainer'>
                             <form action="/posts/<%= posts[i]._id %>/vote?_method=PUT" method="POST">
                                 <input hidden value="<%= posts[i].voteTotal +1 %>" name="voteTotal">
@@ -46,23 +41,17 @@
                         </div>
 
                         <p class="contentCommunity">
-
                             <a href="/posts/community/<%=posts[i].community%>" class="postCommunity">
                                 r/<%= posts[i].community %>
                             </a>
-                        
-                                <span class="contentAuthor"> - <%= posts[i].username %> - <%= posts[i].createdAt
-                                        %>
-
-                                </span>
+                            <span class="contentAuthor"> - <%= posts[i].username %> - <%= posts[i].createdAt %>
+                            </span>
                         </p>
-
                         <p class="contentTitle">
                             <a href="/posts/<%= posts[i]._id %>">
                                 <%= posts[i].title%>
                             </a>
                         </p>
-
                         <% if (posts[i].img.data !==undefined){%>
                             <a href="/posts/<%= posts[i]._id%>" class="contentImage"><img class="contentImage" src="data:image/<%=posts[i].img.contentType%>;base64,
                              <%=posts[i].img.data.toString('base64')%>" %></a>
@@ -74,12 +63,8 @@
                                         <%= posts[i].body %>
                                     </p>
                                     <%}%>
-
-
-
                                         <% if(!posts[i].image) { %>
                                             <p class="contentBody">
-
                                             </p>
                                             <%}%>
                     </div>
@@ -90,12 +75,11 @@
                             Top Communities!
                             <hr>
                             <ol>
-
-                                <% for(let i = 0; i < uniqueComms.length; i++){ %>
-                                    <li class="sidebarCommunity"><a href="/posts/community/<%= uniqueComms[i] %>">r/<%= uniqueComms[i].toLowerCase() %></a></li>
-                                    <% if(i === 4){break} %>
-                                <%}%>
-
+                                <% for(let i=0; i < uniqueComms.length; i++){ %>
+                                    <li class="sidebarCommunity"><a href="/posts/community/<%= uniqueComms[i] %>">r/<%=
+                                                uniqueComms[i].toLowerCase() %></a></li>
+                                    <% if(i===4){break} %>
+                                        <%}%>
                             </ol>
                         </div>
                         <div class="createOrPost">

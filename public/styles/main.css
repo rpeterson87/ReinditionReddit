@@ -1,25 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 body {
     display: grid;
     grid-template-rows: 3em 1fr;
     grid-template-columns: 1fr minmax(30em, 40em) minmax(10em, 15em) 1fr;
     background-color: black;
-    color: rgb(215,215,215);
+    color: rgb(215, 215, 215);
     column-gap: 1em;
     row-gap: 0.7em;
 }
+
 .contentDiv {
     display: grid;
     grid-template-columns: 3em 1fr;
-    background-color: rgb(26,26,27);
-    border: 1px solid rgb(52,53,54);
+    background-color: rgb(26, 26, 27);
+    border: 1px solid rgb(52, 53, 54);
     border-radius: 4px;
     width: 100%;
     overflow: hidden;
 }
+
 .contentDiv:hover {
-    border: 1px solid rgb(100,100,100);
+    border: 1px solid rgb(100, 100, 100);
 }
+
 .contentImage {
     display: block;
     margin-left: auto;
@@ -30,42 +34,47 @@ body {
     grid-row: 3;
     grid-column: 2;
 }
+
 .contentImage>img {
     max-height: fit-content;
     max-width: 95%;
 }
+
 .contentTitle {
     display: relative;
-    color: rgb(215,215,215);
+    color: rgb(215, 215, 215);
     font-size: 1.5em;
     grid-row: 2;
     grid-column: 2;
     margin: 0 0 0.4em 0;
 }
+
 .contentBody {
     display: block;
     align-items: center;
-    color: rgb(215,215,215);
+    color: rgb(215, 215, 215);
     font-weight: normal;
     font-size: 1em;
     grid-row: 4;
     grid-column: 2;
 }
+
 .contentAuthor {
     display: flex;
     align-items: center;
     display: inline;
-    color: rgb(125,125,125);
+    color: rgb(125, 125, 125);
     font-weight: normal;
     font-size: 0.9em;
     grid-row: 1;
     grid-column: 2;
 }
+
 .contentCommunity {
     display: flex;
     align-items: center;
     display: inline;
-    color: rgb(215,215,215);
+    color: rgb(215, 215, 215);
     font-weight: normal;
     font-size: 0.9em;
     grid-row: 1;
@@ -75,30 +84,33 @@ body {
 }
 
 .containerMain {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     grid-column: 2;
     width: 100%;
     z-index: 1;
 }
+
 .topCommunities {
     text-align: center;
-    background-color: rgb(26,26,27);
-    border: 1px solid rgb(52,53,54);
+    background-color: rgb(26, 26, 27);
+    border: 1px solid rgb(52, 53, 54);
     border-radius: 4px;
     max-width: 100%;
     font-size: clamp(1rem, 2vw, 1.5rem);
     grid-template-rows: fit-content;
     padding: 0.3em;
 }
+
 li {
     text-align: left;
     font-size: clamp(1rem, 2vw, 1.5rem);
-    
+
 }
+
 .createOrPost {
-    background-color: rgb(26,26,27);
-    border: 1px solid rgb(52,53,54);
+    background-color: rgb(26, 26, 27);
+    border: 1px solid rgb(52, 53, 54);
     border-radius: 4px;
     max-width: 100%;
     grid-template-rows: fit-content;
@@ -106,6 +118,7 @@ li {
     text-align: center;
     padding: 0.3em;
 }
+
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -113,7 +126,10 @@ li {
     grid-column: 3;
     row-gap: 0.7em;
 }
-.createButton, .editButton, .deleteButton {
+
+.createButton,
+.editButton,
+.deleteButton {
     max-width: 100%;
     font-size: 1.2rem;
     border-radius: 9999px;
@@ -123,6 +139,7 @@ li {
     margin-bottom: 1em;
     cursor: pointer;
 }
+
 .logo {
     display: flex;
     align-items: center;
@@ -137,18 +154,20 @@ li {
     font-family: 'Varela Round', sans-serif;
     font-size: 2em;
     text-decoration: none;
-    color: rgb(215,215,215);
+    color: rgb(215, 215, 215);
     padding-left: 0.3em
-
 }
+
 nav {
     display: flex;
     grid-row: 1;
     grid-column: 1/ span 4;
-    background-color: rgb(26,26,27);
+    background-color: rgb(26, 26, 27);
     width: 100%;
 }
-.loginButton, .registerButton {
+
+.loginButton,
+.registerButton {
     display: block;
     align-items: center;
     max-width: 100%;
@@ -159,11 +178,13 @@ nav {
     cursor: pointer;
     margin-top: 0.5em;
 }
+
 .navform {
     display: flex;
     padding-right: 0.5em;
     margin-left: auto;
 }
+
 .username {
     display: flex;
     font-family: 'Varela Round', sans-serif;
@@ -173,17 +194,21 @@ nav {
     padding-right: 0.5em;
 }
 
-.upVote:hover{
-    color: rgb(204,55,0);
+.upVote:hover {
+    color: rgb(204, 55, 0);
 }
-.downVote:hover{
-    color: rgb(88,114,200);
+
+.downVote:hover {
+    color: rgb(88, 114, 200);
 }
-.upVote, .downVote {
-    color: rgb(100,100,100);
-    background: rgb(26,26,27);
+
+.upVote,
+.downVote {
+    color: rgb(100, 100, 100);
+    background: rgb(26, 26, 27);
     border: none;
 }
+
 .voteContainer {
     display: flex;
     flex-direction: column;
@@ -192,17 +217,21 @@ nav {
     grid-row: 1/span 5;
     width: 100%;
 }
+
 .voteTotal {
-    color: rgb(215,215,215);
+    color: rgb(215, 215, 215);
     margin: 0;
 }
+
 a {
     text-decoration: none;
-    color: rgb(215,215,215);
+    color: rgb(215, 215, 215);
 }
+
 .sidebarCommunity:hover {
     text-decoration: underline;
 }
+
 .postCommunity:hover {
     text-decoration: underline;
 }

@@ -10,20 +10,20 @@
     </a>
     <a class="logoName" href="/posts">RenditionReddit</a>
     <div class="navform">
-
         <% if(session.currentUser) { %>
-            <p class="username"><%=session.currentUser.username%></p>
+            <p class="username">
+                <%=session.currentUser.username%>
+            </p>
             <form action="/logout">
                 <input style="display: inline" type="submit" value="Logout" class="registerButton">
             </form>
-       <%} else {%>
-            <form action="/login">
-                <input style="display: inline" type="submit" value="Login" class="loginButton">
-            </form>
-            <form action="/register">
-                <input style="display: inline" type="submit" value="Register" class="registerButton">
-            </form>
-        <%}%>
-
+            <%} else {%>
+                <form action="/login">
+                    <input style="display: inline" type="submit" value="Login" class="loginButton">
+                </form>
+                <form action="/register">
+                    <input style="display: inline" type="submit" value="Register" class="registerButton">
+                </form>
+                <%}%>
     </div>
 </nav>

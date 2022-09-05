@@ -13,13 +13,13 @@ const db = require('../models');
 // INDEX / GET - localhost:4000/posts
 router.get('/', async (req, res) => {
     try {
-        const sorted = await db.Posts.find().sort({voteTotal:-1});
+        const sorted = await db.Posts.find().sort({ voteTotal: -1 });
         let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
         const posts = await db.Posts.find();
         let context = { posts: posts };
         if (req.session) {
             const session = req.session;
-            context = { posts: posts, session: session, uniqueComms};
+            context = { posts: posts, session: session, uniqueComms };
         }
         res.render('index.ejs', context);
     } catch (err) {
@@ -30,28 +30,29 @@ router.get('/', async (req, res) => {
 // Community Route
 router.get('/community/:community', async (req, res) => {
     try {
-        const sorted = await db.Posts.find().sort({voteTotal:-1});
+        const sorted = await db.Posts.find().sort({ voteTotal: -1 });
         let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
-        const posts = await db.Posts.find({community: req.params.community});
+        const posts = await db.Posts.find({ community: req.params.community });
         let context = { posts: posts };
         if (req.session) {
             const session = req.session;
-            context = { posts: posts, session: session, uniqueComms};
+            context = { posts: posts, session: session, uniqueComms };
         }
         res.render('community.ejs', context);
     } catch (err) {
         console.log(err);
     }
 });
+
 // NEW / GET- localhost:4000/posts/new
 router.get('/new', async (req, res) => {
     try {
-        if(req.session.currentUser){
-            const sorted = await db.Posts.find().sort({voteTotal:-1});
+        if (req.session.currentUser) {
+            const sorted = await db.Posts.find().sort({ voteTotal: -1 });
             let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
             const session = req.session;
-            context = { session: session, uniqueComms}
-            res.render('new.ejs', context)
+            context = { session: session, uniqueComms }
+            res.render('new.ejs', context);
         } else {
             res.redirect('/login');
         }
@@ -75,25 +76,26 @@ router.post('/', async (req, res, next) => {
 // SHOW / GET - localhost:4000/posts/_id
 router.get('/:id', async (req, res) => {
     try {
-        const sorted = await db.Posts.find().sort({voteTotal:-1});
+        const sorted = await db.Posts.find().sort({ voteTotal: -1 });
         let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
         let postID = req.params.id;
-        const foundPost = await db.Posts.findById(req.params.id)
-        const postInfo = await db.Posts.find({ post: foundPost._id })
-        const postComment = await db.Comment.find({postID})
+        const foundPost = await db.Posts.findById(req.params.id);
+        const postInfo = await db.Posts.find({ post: foundPost._id });
+        const postComment = await db.Comment.find({ postID });
 
-        let context = { posts: foundPost, id: foundPost._id, comment: postComment,uniqueComms}
+        let context = { posts: foundPost, id: foundPost._id, comment: postComment, uniqueComms };
 
-        if(req.session){
+        if (req.session) {
             const session = req.session;
-            context = { posts: foundPost, id: foundPost._id, comment: postComment, session: session, uniqueComms}
+            context = { posts: foundPost, id: foundPost._id, comment: postComment, session: session, uniqueComms }
         }
-        res.render('show.ejs', context)
+        res.render('show.ejs', context);
 
     } catch (err) {
         console.log(err);
     }
 });
+
 // DESTROY / DELETE  - localhost:4000/posts/<_id>
 router.delete('/:id', async (req, res) => {
     try {
@@ -105,19 +107,20 @@ router.delete('/:id', async (req, res) => {
         res.redirect('/404');
     }
 });
+
 // EDIT / GET - localhost:4000/posts/<_id>/edit
 router.get('/:id/edit', async (req, res) => {
     try {
-        const sorted = await db.Posts.find().sort({voteTotal:-1});
+        const sorted = await db.Posts.find().sort({ voteTotal: -1 });
         let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
-        const editPost = await db.Posts.findById(req.params.id)
-        let context = { post: editPost, id: editPost._id, uniqueComms }
-        if(req.session.currentUser){
+        const editPost = await db.Posts.findById(req.params.id);
+        let context = { post: editPost, id: editPost._id, uniqueComms };
+        if (req.session.currentUser) {
             const session = req.session;
-            context = { post: editPost, id: editPost._id, session: session, uniqueComms}
-            res.render('edit.ejs', context)
+            context = { post: editPost, id: editPost._id, session: session, uniqueComms };
+            res.render('edit.ejs', context);
         } else {
-            res.redirect('/login')
+            res.redirect('/login');
         }
 
     } catch (err) {
@@ -127,12 +130,12 @@ router.get('/:id/edit', async (req, res) => {
 
 // COMMENTS ROUTE
 router.put('/:id/comments', async (req, res, next) => {
-    try{
+    try {
         let post = await db.Comment.create(req.body);
-        res.redirect(`/posts/${req.params.id}`)
-    } catch(err) {
-        console.log(err)
-        next()
+        res.redirect(`/posts/${req.params.id}`);
+    } catch (err) {
+        console.log(err);
+        next();
     }
 });
 
@@ -145,20 +148,22 @@ router.put("/:id", async (req, res, next) => {
         await db.Posts.findByIdAndUpdate(req.params.id, updatedPost, { new: true });
         res.redirect(`/posts`);
     } catch (err) {
-        console.log(err)
-        next()
+        console.log(err);
+        next();
     }
 });
+
 router.put("/:id/vote", async (req, res, next) => {
     try {
         const updatedPost = req.body;
         await db.Posts.findByIdAndUpdate(req.params.id, updatedPost, { new: true });
         res.redirect(`/posts`);
     } catch (err) {
-        console.log(err)
-        next()
+        console.log(err);
+        next();
     }
 });
+
 router.put("/:community/:id/vote", async (req, res, next) => {
     console.log(req.params)
     try {
@@ -170,14 +175,15 @@ router.put("/:community/:id/vote", async (req, res, next) => {
         next()
     }
 });
+
 router.put("/:id/vote/show", async (req, res, next) => {
     try {
         const updatedPost = req.body;
         await db.Posts.findByIdAndUpdate(req.params.id, updatedPost, { new: true });
         res.redirect(`/posts/${req.params.id}`);
     } catch (err) {
-        console.log(err)
-        next()
+        console.log(err);
+        next();
     }
 });
 
