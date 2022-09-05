@@ -1,13 +1,17 @@
-.input1, .input2, .input3, textarea {
+.input1,
+.input2,
+.input3,
+textarea {
     grid-column: 2;
-    width: 90%; 
-    background-color: rgb(26,26,26);
-    border: 1px solid rgb(52,53,54);
+    width: 90%;
+    background-color: rgb(26, 26, 26);
+    border: 1px solid rgb(52, 53, 54);
     border-radius: 4px;
     font-size: 1.2em;
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(200,200,200);
+    color: rgb(200, 200, 200);
 }
+
 .createButton {
     margin-top: 0.5em;
 }

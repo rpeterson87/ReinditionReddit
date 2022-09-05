@@ -1,8 +1,5 @@
-<!-- include header -->
 <%- include('include/_header',{page: 'RenditionReddit' }) %>
     <link rel="stylesheet" href="/styles/comment.css">
-
-    <!-- /include header -->
 
     <body>
         <%- include('include/_nav') %>
@@ -46,45 +43,50 @@
                         <a href="/posts/community/<%=posts.community%>" class="postCommunity">
                             r/<%= posts.community %>
                         </a>
-                            <span class="contentAuthor"> - <%= posts.username %> - <%= posts.createdAt %>
-                            </span>
+                        <span class="contentAuthor"> - <%= posts.username %> - <%= posts.createdAt %>
+                        </span>
                     </p>
 
                     <p class="contentTitle">
                         <%= posts.title%>
                     </p>
                     <img class="contentImage" src="<%= posts.image %>">
-
-                    <p class="contentBody">
-                        <%= posts.body %>
-                    </p>
-
-                    <form class="commentBox" action="/posts/<%= id%>/comments?_method=PUT" method="POST">
-                        <% if(session.currentUser) { %>
-                            <div>
-                                <input hidden type="text" value="<%= session.currentUser.username %>"
-                                    name="username"></input>
-                                <input hidden type="text" value="<%= id %>" name="postID"></input>
-                                <textarea class="input4" type="text" placeholder="Add comment" name="body"></textarea>
-                            </div>
-                            <button class="createButton">Comment</button>
-                            <%}%>
-                                <hr style="width:95%; margin-right:2em">
-                    </form>
-
-
-                    <% for (let i=0; i < comment.length; i++){ %>
-                        <% if(comment[i]){ %>
-                            <div class="comment">
-                                <div class="contentAuthor">
-                                    <%= comment[i].username%> - <%= comment[i].createdAt %>
-                                </div>
-                                <div class="commentBody">
-                                    <%= comment[i].body %>
-                                </div>
-                            </div>
+                   
+                    <% if (posts.img.data !==undefined){%>
+                        <img class="contentImage" src="data:image/<%=posts.img.contentType%>;base64,
+                     <%=posts.img.data.toString('base64')%>" width="90%">
+                        <% }else{%>
+                            <img class="contentImage" src="<%= posts.image %>" width="90%">
                             <% } %>
-                                <%}%>
+                                <p class="contentBody">
+                                    <%= posts.body %>
+                                </p>
+                                <form class="commentBox" action="/posts/<%= id%>/comments?_method=PUT" method="POST">
+                                    <% if(session.currentUser) { %>
+                                        <div>
+                                            <input hidden type="text" value="<%= session.currentUser.username %>"
+                                                name="username"></input>
+                                            <input hidden type="text" value="<%= id %>" name="postID"></input>
+                                            <textarea class="input4" type="text" placeholder="Add comment"
+                                                name="body"></textarea>
+                                        </div>
+                                        <button class="createButton">Comment</button>
+                                        <%}%>
+                                            <hr style="width:95%; margin-right:2em">
+                                </form>
+
+                                <% for (let i=0; i < comment.length; i++){ %>
+                                    <% if(comment[i]){ %>
+                                        <div class="comment">
+                                            <div class="contentAuthor">
+                                                <%= comment[i].username%> - <%= comment[i].createdAt %>
+                                            </div>
+                                            <div class="commentBody">
+                                                <%= comment[i].body %>
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                            <%}%>
 
                 </div>
             </div>
@@ -93,10 +95,13 @@
                     Top Communities!
                     <hr>
                     <ol>
-                        <% for(let i = 0; i < uniqueComms.length; i++){ %>
-                            <li class="sidebarCommunity"><a href="/posts/community/<%= uniqueComms[i] %>">r/<%= uniqueComms[i].toLowerCase() %></a></li>
-                            <% if(i === 4){break} %>
-                        <%}%>
+
+                        <% for(let i=0; i < uniqueComms.length; i++){ %>
+                            <li class="sidebarCommunity"><a href="/posts/community/<%= uniqueComms[i] %>">r/<%=
+                                        uniqueComms[i].toLowerCase() %></a></li>
+                            <% if(i===4){break} %>
+                                <%}%>
+
                     </ol>
                 </div>
                 <div class="createOrPost">
@@ -115,7 +120,7 @@
                                 <input type="submit" class="deleteButton" value="Delete Post">
                             </form>
                             <%}%>
-                    <% } %>
+                                <% } %>
                 </div>
             </div>
 

@@ -17,11 +17,16 @@ const postSchema = new mongoose.Schema(
             type: Number,
             default: 0
         },
-        image: {type: String},
-        username: {type: String},
+        image: { type: String },
+        username: { type: String },
+        img:
+        {
+            data: Buffer,
+            contentType: String
+        }
     },
     { timestamps: true },
-    
+
 );
 
 const Posts = mongoose.model('Posts', postSchema);
