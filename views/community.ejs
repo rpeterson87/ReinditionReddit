@@ -56,6 +56,10 @@
                         </p>
                         <a href="/posts/<%= posts[i]._id%>" class="contentImage"><img src="<%= posts[i].image %>"
                                 href="/posts/<%= posts[i]._id%>"></a>
+                                <% if (posts[i].img.data !==undefined){%>
+                                    <a href="/posts/<%= posts[i]._id%>" class="contentImage"><img class="contentImage" src="data:image/<%=posts[i].img.contentType%>;base64,
+                                     <%=posts[i].img.data.toString('base64')%>" %></a>
+                                    <% } %>
                         <% if(!posts[i].image) { %>
                             <p class="contentBody">
                                 <a href="/posts/<%= posts[i]._id%>">
