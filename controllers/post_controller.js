@@ -26,6 +26,23 @@ router.get('/', async (req, res) => {
         console.log(err);
     }
 });
+
+// Community Route
+router.get('/community/:community', async (req, res) => {
+    try {
+        const sorted = await db.Posts.find().sort({voteTotal:-1});
+        let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
+        const posts = await db.Posts.find({community: req.params.community});
+        let context = { posts: posts };
+        if (req.session) {
+            const session = req.session;
+            context = { posts: posts, session: session, uniqueComms};
+        }
+        res.render('community.ejs', context);
+    } catch (err) {
+        console.log(err);
+    }
+});
 // NEW / GET- localhost:4000/posts/new
 router.get('/new', async (req, res) => {
     try {
@@ -91,12 +108,13 @@ router.delete('/:id', async (req, res) => {
 // EDIT / GET - localhost:4000/posts/<_id>/edit
 router.get('/:id/edit', async (req, res) => {
     try {
-
+        const sorted = await db.Posts.find().sort({voteTotal:-1});
+        let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
         const editPost = await db.Posts.findById(req.params.id)
-        let context = { post: editPost, id: editPost._id }
+        let context = { post: editPost, id: editPost._id, uniqueComms }
         if(req.session.currentUser){
             const session = req.session;
-            context = { post: editPost, id: editPost._id, session: session}
+            context = { post: editPost, id: editPost._id, session: session, uniqueComms}
             res.render('edit.ejs', context)
         } else {
             res.redirect('/login')
@@ -136,6 +154,17 @@ router.put("/:id/vote", async (req, res, next) => {
         const updatedPost = req.body;
         await db.Posts.findByIdAndUpdate(req.params.id, updatedPost, { new: true });
         res.redirect(`/posts`);
+    } catch (err) {
+        console.log(err)
+        next()
+    }
+});
+router.put("/:community/:id/vote", async (req, res, next) => {
+    console.log(req.params)
+    try {
+        const updatedPost = req.body;
+        await db.Posts.findByIdAndUpdate(req.params.id, updatedPost, { new: true });
+        res.redirect(`/posts/community/${req.params.community}`);
     } catch (err) {
         console.log(err)
         next()

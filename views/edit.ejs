@@ -38,14 +38,12 @@
                     Top Communities!
                     <hr>
                     <ol>
-                        <li>r/example 1</li>
-                        <li>r/example 2</li>
-                        <li>r/example 3</li>
-                        <li>r/example 4</li>
-                        <li>r/example 5</li>
+                        <% for(let i = 0; i < uniqueComms.length; i++){ %>
+                            <li class="sidebarCommunity"><a href="/posts/community/<%= uniqueComms[i] %>">r/<%= uniqueComms[i].toLowerCase() %></a></li>
+                            <% if(i === 4){break} %>
+                        <%}%>
                     </ol>
                 </div>
-            </div>
     </body>
 
 
