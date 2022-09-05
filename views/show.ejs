@@ -43,7 +43,9 @@
                         </form>
                     </div>
                     <p class="contentCommunity">
-                        r/<%= posts.community %>
+                        <a href="/posts/community/<%=posts.community%>" class="postCommunity">
+                            r/<%= posts.community %>
+                        </a>
                             <span class="contentAuthor"> - <%= posts.username %> - <%= posts.createdAt %>
                             </span>
                     </p>
@@ -92,7 +94,7 @@
                     <hr>
                     <ol>
                         <% for(let i = 0; i < uniqueComms.length; i++){ %>
-                            <li><a href="/posts/community/<%= uniqueComms[i] %>">r/<%= uniqueComms[i].toLowerCase() %></a></li>
+                            <li class="sidebarCommunity"><a href="/posts/community/<%= uniqueComms[i] %>">r/<%= uniqueComms[i].toLowerCase() %></a></li>
                             <% if(i === 4){break} %>
                         <%}%>
                     </ol>

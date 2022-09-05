@@ -108,12 +108,13 @@ router.delete('/:id', async (req, res) => {
 // EDIT / GET - localhost:4000/posts/<_id>/edit
 router.get('/:id/edit', async (req, res) => {
     try {
-
+        const sorted = await db.Posts.find().sort({voteTotal:-1});
+        let uniqueComms = [... new Set(sorted.map(comm => comm.community))];
         const editPost = await db.Posts.findById(req.params.id)
-        let context = { post: editPost, id: editPost._id }
+        let context = { post: editPost, id: editPost._id, uniqueComms }
         if(req.session.currentUser){
             const session = req.session;
-            context = { post: editPost, id: editPost._id, session: session}
+            context = { post: editPost, id: editPost._id, session: session, uniqueComms}
             res.render('edit.ejs', context)
         } else {
             res.redirect('/login')
