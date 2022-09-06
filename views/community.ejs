@@ -60,7 +60,7 @@
                                     <a href="/posts/<%= posts[i]._id%>" class="contentImage"><img class="contentImage" src="data:image/<%=posts[i].img.contentType%>;base64,
                                      <%=posts[i].img.data.toString('base64')%>" %></a>
                                     <% } %>
-                        <% if(!posts[i].image && !posts[i].img) { %>
+                                    <% if(!posts[i].image && posts[i].img.data == undefined) { %>
                             <p class="contentBody">
                                 <a href="/posts/<%= posts[i]._id%>">
                                     <%= posts[i].body %>

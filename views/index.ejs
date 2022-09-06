@@ -58,15 +58,12 @@
                             <% } %>
                                 <a href="/posts/<%= posts[i]._id%>" class="contentImage"><img
                                         src="<%= posts[i].image %>" href="/posts/<%= posts[i]._id%>"></a>
-                                <% if(!posts[i].image ) { %>
+                                <% if(!posts[i].image && posts[i].img.data == undefined) { %>
                                     <p class="contentBody">
                                         <%= posts[i].body %>
                                     </p>
                                     <%}%>
-                                        <% if(!posts[i].image) { %>
-                                            <p class="contentBody">
-                                            </p>
-                                            <%}%>
+                                
                     </div>
                 </div>
                 <% } %>
