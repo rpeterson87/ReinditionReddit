@@ -1,4 +1,5 @@
-# ReinditionReddit - https://renditionreddit.herokuapp.com/posts
+# ReinditionReddit 
+## https://renditionreddit.herokuapp.com/posts
 
 # Project 2 - Nick Duitsman - Ryan Peterson - Michael Dixon
 
