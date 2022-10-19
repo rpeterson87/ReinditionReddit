@@ -44,8 +44,8 @@
                     <hr>
                     <ol>
                         <% for(let i=0; i < uniqueComms.length; i++){ %>
-                            <li class="sidebarCommunity">r/<%= uniqueComms[i].toLowerCase() %>
-                            </li>
+                            <li class="sidebarCommunity"><a href="/posts/community/<%= uniqueComms[i] %>">r/<%=
+                                        uniqueComms[i].toLowerCase() %></a></li>
                             <% if(i===4){break} %>
                                 <%}%>
                     </ol>
